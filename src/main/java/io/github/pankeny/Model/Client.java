@@ -1,4 +1,4 @@
-package Model;
+package io.github.pankeny.Model;
 
 public class Client {
 

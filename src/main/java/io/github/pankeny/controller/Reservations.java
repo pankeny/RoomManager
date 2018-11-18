@@ -1,11 +1,11 @@
-package io.github.pankeny.DAO;
+package io.github.pankeny.controller;
 
 import java.sql.Connection;
 import java.sql.Date;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
-public class ReservationsDAOImpl implements ReservationsDAO {
+public class Reservations{
 
     static{
         try{

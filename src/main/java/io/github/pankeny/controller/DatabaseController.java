@@ -1,9 +1,6 @@
 package io.github.pankeny.controller;
 
-import java.sql.Connection;
-import java.sql.Date;
-import java.sql.DriverManager;
-import java.sql.SQLException;
+import java.sql.*;
 
 public class DatabaseController {
 
@@ -41,9 +38,24 @@ public class DatabaseController {
 
     }
 
-    public void createNewClient(String clientName, String clientLastName) {
+    public void addNewClient(String clientName, String clientLastName) {
+
+
+        String addClientStatement = "INSERT INTO clients(name, lastName, idCardNumber) VALUES( '" + clientName.trim() + "', '" + clientLastName.trim() + "', 'insert later');";
 
         Connection connection = null;
+
+        try{
+
+            connection = getConnection();
+            System.out.println("DatabaseController: INSIDE connection try IN createNewCLient");
+            PreparedStatement preparedStatement = connection.prepareStatement(addClientStatement);
+            preparedStatement.executeUpdate();
+
+        } catch(SQLException e){
+            e.printStackTrace();
+        }
+
 
 
     }

@@ -5,12 +5,12 @@ import java.sql.Date;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
-public class Reservations{
+public class DatabaseController {
 
     static{
         try{
 
-            Class.forName("com.mysql.jdbc.Driver");
+            Class.forName("com.mysql.cj.jdbc.Driver");
         } catch(ClassNotFoundException e) {
             e.printStackTrace();
         }
@@ -19,7 +19,7 @@ public class Reservations{
 
     private Connection getConnection() throws SQLException{
 
-        return DriverManager.getConnection("jdbc:mysql://localhost:3306/roomsmanager", "malochak", "logitech24");
+        return DriverManager.getConnection("jdbc:mysql://localhost:3306/roomsmanager", "root", "logitech24");
 
     }
 
@@ -43,6 +43,7 @@ public class Reservations{
 
     public void createNewClient(String clientName, String clientLastName) {
 
+        Connection connection = null;
 
 
     }

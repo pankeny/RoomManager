@@ -1,25 +1,30 @@
 package io.github.pankeny.controller;
 
+import io.github.pankeny.model.Client;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
-
+import javafx.scene.control.TableView;
 
 public class HomeController {
 
 
+    @FXML
+    TableView<Client> clientTable;
 
     @FXML
-    TableColumn clientIdColumn;
+    TableColumn<Client, Number> clientIdColumn;
 
     @FXML
-    TableColumn clientNameColumn;
+    TableColumn<Client, String> clientNameColumn;
 
     @FXML
-    TableColumn clientLastNameColumn;
+    TableColumn<Client, String> clientLastNameColumn;
 
     @FXML
-    TableColumn clientIdCardColumn;
+    TableColumn<Client, String> clientIdCardColumn;
 
     @FXML
     Button addReservationButton;
@@ -27,8 +32,14 @@ public class HomeController {
     @FXML
     Button addClientButton;
 
+
+    private ObservableList<Client> clientObservableList;
+    private DatabaseController dbController = new DatabaseController();
+
     @FXML
     void initialize() {
+
+        initClientTable();
 
     }
 
@@ -36,11 +47,27 @@ public class HomeController {
 
     public void addNewClient(){
         System.out.println("ADDING NEW CLIENT");
+
+
+
     }
 
     @FXML
     public void addNewReservation(){
 
+    }
+
+    // INIT METHODS
+
+    private void initClientTable(){
+        clientObservableList = FXCollections.observableArrayList(dbController.getClientsFromDB());
+
+        clientIdColumn.setCellValueFactory( e -> e.getValue().idProperty());
+        clientNameColumn.setCellValueFactory( e -> e.getValue().nameProperty() );
+        clientLastNameColumn.setCellValueFactory( e -> e.getValue().lastNameProperty());
+        clientIdCardColumn.setCellValueFactory( e -> e.getValue().idCardNumberProperty());
+
+        clientTable.setItems(clientObservableList);
     }
 
 }

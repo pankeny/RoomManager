@@ -34,7 +34,7 @@ public class MainApp extends Application {
 
         try{
             FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(getClass().getResource("/fxml/Home.fxml"));
+            loader.setLocation(getClass().getResource("/io/github/pankeny/view/Home.fxml"));
             rootLayout = loader.load();
             primaryStage.setScene(new Scene(rootLayout));
             primaryStage.show();
@@ -46,3 +46,4 @@ public class MainApp extends Application {
     }
 
 }
+

@@ -1,12 +1,21 @@
 package io.github.pankeny.controller;
 
+import io.github.pankeny.MainApp;
 import io.github.pankeny.model.Client;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.layout.AnchorPane;
+import javafx.stage.Modality;
+import javafx.stage.Stage;
+
+import java.io.IOException;
 
 public class HomeController {
 
@@ -36,18 +45,35 @@ public class HomeController {
     private ObservableList<Client> clientObservableList;
     private DatabaseController dbController = new DatabaseController();
 
+    private Stage primaryStage;
+    private Stage popupStage = new Stage();
+    private AnchorPane newClientScene;
+    private MainApp mainApp = new MainApp();
+
+
     @FXML
     void initialize() {
-
+        this.primaryStage = mainApp.getPrimaryStage();
         initClientTable();
 
     }
 
-    @FXML
 
-    public void addNewClient(){
+    @FXML
+    public void addNewClient(ActionEvent event) throws IOException {
         System.out.println("ADDING NEW CLIENT");
 
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource("/io/github/pankeny/view/NewClientDialog.fxml"));
+        newClientScene = loader.load();
+
+        popupStage.setTitle("Dodawanie klienta");
+        popupStage.setScene(new Scene(newClientScene));
+        popupStage.initModality(Modality.WINDOW_MODAL);
+        popupStage.initOwner(primaryStage);
+
+
+        popupStage.show();
 
 
     }

@@ -25,6 +25,8 @@ public class NewClientDialogController {
     @FXML
     public void addNewClient(){
 
+
+
     }
 
 

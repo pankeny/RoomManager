@@ -46,8 +46,7 @@ public class HomeController {
     private DatabaseController dbController = new DatabaseController();
 
     private Stage primaryStage;
-    private Stage popupStage = new Stage();
-    private AnchorPane newClientScene;
+
     private MainApp mainApp = new MainApp();
 
 
@@ -61,6 +60,9 @@ public class HomeController {
 
     @FXML
     public void addNewClient(ActionEvent event) throws IOException {
+        Stage popupStage = new Stage();
+         AnchorPane newClientScene;
+
         System.out.println("ADDING NEW CLIENT");
 
         FXMLLoader loader = new FXMLLoader();
@@ -72,10 +74,7 @@ public class HomeController {
         popupStage.initModality(Modality.WINDOW_MODAL);
         popupStage.initOwner(primaryStage);
 
-
-        popupStage.show();
-
-
+        popupStage.showAndWait();
     }
 
     @FXML

@@ -15,7 +15,7 @@ public class Client {
 
     public Client(){
 
-        this.id = new SimpleIntegerProperty(0);
+        this.id = new SimpleIntegerProperty();
         this.name = new SimpleStringProperty("");
         this.lastName = new SimpleStringProperty("");
         this.idCardNumber = new SimpleStringProperty("");

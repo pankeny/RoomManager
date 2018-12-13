@@ -1,4 +1,4 @@
-package io.github.pankeny.Model;
+package io.github.pankeny.model;
 
 import java.util.Date;
 

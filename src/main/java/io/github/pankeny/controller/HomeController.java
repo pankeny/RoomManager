@@ -41,13 +41,12 @@ public class HomeController {
     @FXML
     Button addClientButton;
 
-    Stage popupStage = new Stage();
+    Stage popupStage;
     AnchorPane newClientScene;
 
     private ObservableList<Client> clientObservableList;
     private DatabaseController dbController = new DatabaseController();
 
-    private Stage primaryStage;
 
     private MainApp mainApp;
 
@@ -59,8 +58,9 @@ public class HomeController {
 
 
     @FXML
-    public void addNewClient(ActionEvent event) throws IOException {
-
+    public boolean addNewClient(ActionEvent event) throws IOException {
+    try{
+        this.popupStage = new Stage();
         System.out.println("ADDING NEW CLIENT");
 
         FXMLLoader loader = new FXMLLoader();
@@ -70,13 +70,22 @@ public class HomeController {
         popupStage.setTitle("Dodawanie klienta");
         popupStage.setScene(new Scene(newClientScene));
         popupStage.initModality(Modality.WINDOW_MODAL);
-        popupStage.initOwner(primaryStage);
+        popupStage.initOwner(mainApp.getPrimaryStage());
 
         NewClientDialogController controller = loader.getController();
-        controller.setPopupStage(popupStage);
+
+        controller.setParent(this);
+
         popupStage.showAndWait();
-        popupStage.close();
         initClientTable();
+
+        return true;
+
+    } catch (IOException e) {
+        e.printStackTrace();
+        return false;
+    }
+
     }
 
     @FXML
@@ -95,6 +104,10 @@ public class HomeController {
         clientIdCardColumn.setCellValueFactory( e -> e.getValue().idCardNumberProperty());
 
         clientTable.setItems(clientObservableList);
+    }
+
+    private void setUpPopup(){
+
     }
 
     public Stage getPopupStage(){

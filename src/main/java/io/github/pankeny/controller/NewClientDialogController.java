@@ -19,7 +19,7 @@ public class NewClientDialogController {
     @FXML
     TextField idCardTextField;
 
-
+    HomeController homeController;
     Stage popupStage;
 
 
@@ -28,13 +28,13 @@ public class NewClientDialogController {
 
     }
 
-    public void setPopupStage(Stage popupStage){
-        this.popupStage = popupStage;
+    public void setParent(HomeController controller){
+        this.homeController = controller;
     }
 
     @FXML
     public void addNewClient(){
-
+        Stage popup = homeController.getPopupStage();
         Client client = new Client();
 
         String name = nameTextField.getText();
@@ -47,9 +47,9 @@ public class NewClientDialogController {
 
         dbController.addNewClient(name, lastName);
         System.out.println("ADDING NEW CLIENT INSIDE DIALOG WINDOW");
-        popupStage.setTitle("OK");
+        popup.setTitle("OK");
 
-        popupStage.close();
+        popup.close();
     }
 
 

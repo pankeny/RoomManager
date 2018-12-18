@@ -47,25 +47,29 @@ public class MainApp extends Application {
             e.printStackTrace();
         }
 
-    }
+}
+
+
     private void showHome(){
 
         try{
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(getClass().getResource("/io/github/pankeny/view/Home.fxml"));
 
-            AnchorPane homeView = (AnchorPane) loader.load();
+            System.out.println(this);
+
+            BorderPane homeView =  loader.load();
 
             rootLayout.setCenter(homeView);
 
-            HomeController homeController = loader.getController();
-            homeController.setMainApp(this);
+            HomeController controller = loader.getController();
+
+            controller.setMainApp(this);
 
 
         } catch(IOException e) {
 
         }
-
 
     }
 

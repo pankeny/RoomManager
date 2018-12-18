@@ -1,12 +1,21 @@
 package io.github.pankeny.controller;
 
+import io.github.pankeny.MainApp;
 import io.github.pankeny.model.Client;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.layout.AnchorPane;
+import javafx.stage.Modality;
+import javafx.stage.Stage;
+
+import java.io.IOException;
 
 public class HomeController {
 
@@ -32,23 +41,50 @@ public class HomeController {
     @FXML
     Button addClientButton;
 
+    Stage popupStage;
+    AnchorPane newClientScene;
 
     private ObservableList<Client> clientObservableList;
     private DatabaseController dbController = new DatabaseController();
 
+
+    private MainApp mainApp;
+
+
     @FXML
     void initialize() {
-
         initClientTable();
-
     }
 
-    @FXML
 
-    public void addNewClient(){
+    @FXML
+    public boolean addNewClient(ActionEvent event) throws IOException {
+    try{
+        this.popupStage = new Stage();
         System.out.println("ADDING NEW CLIENT");
 
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource("/io/github/pankeny/view/NewClientDialog.fxml"));
+        newClientScene = loader.load();
 
+        popupStage.setTitle("Dodawanie klienta");
+        popupStage.setScene(new Scene(newClientScene));
+        popupStage.initModality(Modality.WINDOW_MODAL);
+        popupStage.initOwner(mainApp.getPrimaryStage());
+
+        NewClientDialogController controller = loader.getController();
+
+        controller.setParent(this);
+
+        popupStage.showAndWait();
+        initClientTable();
+
+        return true;
+
+    } catch (IOException e) {
+        e.printStackTrace();
+        return false;
+    }
 
     }
 
@@ -70,4 +106,15 @@ public class HomeController {
         clientTable.setItems(clientObservableList);
     }
 
+    private void setUpPopup(){
+
+    }
+
+    public Stage getPopupStage(){
+        return popupStage;
+    }
+
+    public void setMainApp(MainApp mainApp) {
+        this.mainApp = mainApp;
+    }
 }

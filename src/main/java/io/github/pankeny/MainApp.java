@@ -1,12 +1,13 @@
 package io.github.pankeny;
 
 
+import io.github.pankeny.controller.HomeController;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.Border;
 import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -27,23 +28,47 @@ public class MainApp extends Application {
         this.primaryStage.setTitle("Rooms Manager");
 
         initRootLayout();
+        showHome();
+
 
     }
 
-    public void initRootLayout(){
 
-        try{
+    private void initRootLayout(){
+        try {
             FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(getClass().getResource("/io/github/pankeny/view/Home.fxml"));
+            loader.setLocation(MainApp.class.getResource("view/Root.fxml"));
             rootLayout = loader.load();
-            primaryStage.setScene(new Scene(rootLayout));
+
+            Scene scene = new Scene(rootLayout);
+            primaryStage.setScene(scene);
             primaryStage.show();
-        } catch(IOException e) {
-            System.out.println("Cant load Home.fxml file");
+        } catch (IOException e) {
             e.printStackTrace();
         }
 
     }
+    private void showHome(){
+
+        try{
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(getClass().getResource("/io/github/pankeny/view/Home.fxml"));
+
+            AnchorPane homeView = (AnchorPane) loader.load();
+
+            rootLayout.setCenter(homeView);
+
+            HomeController homeController = loader.getController();
+            homeController.setMainApp(this);
+
+
+        } catch(IOException e) {
+
+        }
+
+
+    }
+
 
     public Stage getPrimaryStage(){
         return this.primaryStage;

@@ -20,7 +20,7 @@ public class DatabaseController {
 
     private Connection getConnection() throws SQLException{
 
-        return DriverManager.getConnection("jdbc:mysql://localhost:3306/roomsmanager?useLegacyDatetimeCode=false&serverTimezone=UTC", "root", "Logitech24");
+        return DriverManager.getConnection("jdbc:mysql://localhost:3306/roomsmanager?useLegacyDatetimeCode=false&serverTimezone=UTC", "root", "Test123.");
 
     }
 

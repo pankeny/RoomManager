@@ -49,14 +49,12 @@ public class HomeController {
 
     private Stage primaryStage;
 
-    private MainApp mainApp = new MainApp();
+    private MainApp mainApp;
 
 
     @FXML
     void initialize() {
-        this.primaryStage = mainApp.getPrimaryStage();
         initClientTable();
-
     }
 
 
@@ -77,6 +75,7 @@ public class HomeController {
         NewClientDialogController controller = loader.getController();
         controller.setPopupStage(popupStage);
         popupStage.showAndWait();
+        popupStage.close();
         initClientTable();
     }
 
@@ -100,5 +99,9 @@ public class HomeController {
 
     public Stage getPopupStage(){
         return popupStage;
+    }
+
+    public void setMainApp(MainApp mainApp) {
+        this.mainApp = mainApp;
     }
 }

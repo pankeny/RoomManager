@@ -47,9 +47,7 @@ public class HomeController {
     private ObservableList<Client> clientObservableList;
     private DatabaseController dbController = new DatabaseController();
 
-
     private MainApp mainApp;
-
 
     @FXML
     void initialize() {

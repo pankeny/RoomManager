@@ -1,6 +1,7 @@
 package io.github.pankeny.controller;
 
 import io.github.pankeny.model.Client;
+import io.github.pankeny.model.Room;
 import javafx.collections.ObservableList;
 
 import java.sql.*;
@@ -64,7 +65,7 @@ public class DatabaseController {
 
     public ArrayList<Client> getClientsFromDB() {
 
-        ArrayList<Client> clientsList = new ArrayList<Client>();
+        ArrayList<Client> clientsList = new ArrayList<>();
 
         Connection connection = null;
 
@@ -93,7 +94,46 @@ public class DatabaseController {
             e.printStackTrace();
         }
 
-
         return clientsList;
+    }
+
+
+    public ArrayList<Room> getRoomsFromDB(){
+        ArrayList<Room> roomsList = new ArrayList<>();
+
+        Connection connection = null;
+
+        try{
+
+            connection = getConnection();
+
+            PreparedStatement preparedStatement = connection.prepareStatement("SELECT * FROM ROOMS");
+
+            ResultSet resultSet = preparedStatement.executeQuery();
+
+            while(resultSet.next()){
+
+                Room room = new Room();
+
+                room.setNumber(resultSet.getInt("RoomNumber"));
+                room.setDoubleRoom(resultSet.getInt("DoubleRoom") == 1 ? true : false); // in mysql there's only values 0 and 1 for boolean type, so its parse boolean from int.
+                room.setIsEngaged(resultSet.getInt("IsEngaged") == 1 ? true : false);
+                room.setNumberOfPeople(resultSet.getInt("NumberOfPeople"));
+                room.setPricePerDay(resultSet.getDouble("PricePerDay"));
+                room.setExtra(resultSet.getString("Extra"));
+
+
+
+                roomsList.add(room);
+
+            }
+
+        } catch(SQLException e){
+            e.printStackTrace();
+        }
+
+        return roomsList;
+
+
     }
 }

@@ -1,50 +1,106 @@
 package io.github.pankeny.model;
 
+import javafx.beans.property.*;
+
 public class Room {
 
-    private Integer number;
-    private Integer NumberOfPeople;
-    private Boolean isEngaged;
-    private Boolean doubleRoom;
-    private Double pricePerDay;
+    private IntegerProperty number;
+    private IntegerProperty numberOfPeople;
+    private BooleanProperty isEngaged;
+    private BooleanProperty doubleRoom;
+    private DoubleProperty pricePerDay;
+    private StringProperty extra;
 
-    public Integer getNumber() {
+    public Room(){
+        this.number = new SimpleIntegerProperty();
+        this.numberOfPeople = new SimpleIntegerProperty();
+        this.isEngaged = new SimpleBooleanProperty();
+        this.doubleRoom = new SimpleBooleanProperty();
+        this.pricePerDay = new SimpleDoubleProperty();
+        this.extra = new SimpleStringProperty("");
+    }
+
+    public int getNumber() {
+        return number.get();
+    }
+
+    public IntegerProperty numberProperty() {
         return number;
     }
 
-    public void setNumber(Integer number) {
-        this.number = number;
+    public void setNumber(int number) {
+        this.number.set(number);
     }
 
-    public Integer getNumberOfPeople() {
-        return NumberOfPeople;
+    public int getNumberOfPeople() {
+        return numberOfPeople.get();
     }
 
-    public void setNumberOfPeople(Integer numberOfPeople) {
-        NumberOfPeople = numberOfPeople;
+    public IntegerProperty numberOfPeopleProperty() {
+        return numberOfPeople;
     }
 
-    public Boolean getEngaged() {
+    public void setNumberOfPeople(int numberOfPeople) {
+        this.numberOfPeople.set(numberOfPeople);
+    }
+
+    public boolean isIsEngaged() {
+        return isEngaged.get();
+    }
+
+    public BooleanProperty isEngagedProperty() {
         return isEngaged;
     }
 
-    public void setEngaged(Boolean engaged) {
-        isEngaged = engaged;
+    public void setIsEngaged(boolean isEngaged) {
+        this.isEngaged.set(isEngaged);
     }
 
-    public Boolean getDoubleRoom() {
+    public boolean isDoubleRoom() {
+        return doubleRoom.get();
+    }
+
+    public BooleanProperty doubleRoomProperty() {
         return doubleRoom;
     }
 
-    public void setDoubleRoom(Boolean doubleRoom) {
-        this.doubleRoom = doubleRoom;
+    public void setDoubleRoom(boolean doubleRoom) {
+        this.doubleRoom.set(doubleRoom);
     }
 
-    public Double getPricePerDay() {
+    public double getPricePerDay() {
+        return pricePerDay.get();
+    }
+
+    public DoubleProperty pricePerDayProperty() {
         return pricePerDay;
     }
 
-    public void setPricePerDay(Double pricePerDay) {
-        this.pricePerDay = pricePerDay;
+    public void setPricePerDay(double pricePerDay) {
+        this.pricePerDay.set(pricePerDay);
+    }
+
+    public String getExtra() {
+        return extra.get();
+    }
+
+    public StringProperty extraProperty() {
+        return extra;
+    }
+
+    public void setExtra(String extra) {
+        this.extra.set(extra);
+    }
+
+    @Override
+    public String toString() {
+        return "Room{" +
+                "number=" + number +
+                ", numberOfPeople=" + numberOfPeople +
+                ", isEngaged=" + isEngaged +
+                ", doubleRoom=" + doubleRoom +
+                ", pricePerDay=" + pricePerDay +
+                ", extra=" + extra +
+                '}';
     }
 }

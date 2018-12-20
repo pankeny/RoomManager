@@ -1,7 +1,10 @@
 package io.github.pankeny.controller;
 
+import com.sun.org.apache.xpath.internal.operations.Bool;
 import io.github.pankeny.MainApp;
 import io.github.pankeny.model.Client;
+import io.github.pankeny.model.Room;
+import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -20,6 +23,8 @@ import java.io.IOException;
 public class HomeController {
 
 
+
+    // Client Table
     @FXML
     TableView<Client> clientTable;
 
@@ -35,6 +40,30 @@ public class HomeController {
     @FXML
     TableColumn<Client, String> clientIdCardColumn;
 
+    // Room Table
+
+
+    @FXML
+    TableView<Room> roomTableView;
+
+    @FXML
+    TableColumn<Room, Number> numberColumn;
+
+    @FXML
+    TableColumn<Room, Number> numberOfPeopleColumn;
+
+    @FXML
+    TableColumn<Room, String> isFreeColumn;
+
+    @FXML
+    TableColumn<Room, String> doubleRoomColumn;
+
+    @FXML
+    TableColumn<Room, Number> pricePerDayColumn;
+
+    @FXML
+    TableColumn<Room,String> extraColumn;
+
     @FXML
     Button addReservationButton;
 
@@ -45,6 +74,8 @@ public class HomeController {
     AnchorPane newClientScene;
 
     private ObservableList<Client> clientObservableList;
+    private ObservableList<Room> roomObservableList;
+
     private DatabaseController dbController = new DatabaseController();
 
     private MainApp mainApp;
@@ -52,6 +83,7 @@ public class HomeController {
     @FXML
     void initialize() {
         initClientTable();
+        initRoomTable();
     }
 
 
@@ -102,6 +134,20 @@ public class HomeController {
         clientIdCardColumn.setCellValueFactory( e -> e.getValue().idCardNumberProperty());
 
         clientTable.setItems(clientObservableList);
+    }
+
+    private void initRoomTable(){
+
+        roomObservableList = FXCollections.observableArrayList(dbController.getRoomsFromDB());
+
+        numberColumn.setCellValueFactory( e -> e.getValue().numberProperty() );
+        numberOfPeopleColumn.setCellValueFactory( e -> e.getValue().numberOfPeopleProperty() );
+        isFreeColumn.setCellValueFactory( e -> (e.getValue().isIsEngaged() ? new SimpleStringProperty("Nie") : new SimpleStringProperty("Tak"))); // convert boolean type to string yes/no
+        doubleRoomColumn.setCellValueFactory( e -> (e.getValue().isDoubleRoom() ? new SimpleStringProperty("Tak") : new SimpleStringProperty("Nie"))); // convert boolean type to string yes/no
+        pricePerDayColumn.setCellValueFactory( e -> e.getValue().pricePerDayProperty() );
+        extraColumn.setCellValueFactory( e -> e.getValue().extraProperty() );
+
+        roomTableView.setItems(roomObservableList);
     }
 
     private void setUpPopup(){

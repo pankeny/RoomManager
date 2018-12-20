@@ -67,14 +67,18 @@
                   </AnchorPane>
                </content>
             </Tab>
-            <Tab text="Pokoje">
+            <Tab fx:id="roomTable" text="Pokoje">
                <content>
                   <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>
-                        <TableView layoutX="90.0" layoutY="35.0" prefHeight="706.0" prefWidth="824.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                        <TableView fx:id="roomTableView" layoutX="90.0" layoutY="35.0" prefHeight="706.0" prefWidth="824.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                            <columns>
-                              <TableColumn prefWidth="75.0" text="C1" />
-                              <TableColumn prefWidth="75.0" text="C2" />
+                              <TableColumn fx:id="numberColumn" prefWidth="100.0" text="Numer" />
+                              <TableColumn fx:id="numberOfPeopleColumn" prefWidth="119.0" text="Liczba osób" />
+                              <TableColumn fx:id="isFreeColumn" prefWidth="128.0" text="Wolny" />
+                              <TableColumn fx:id="doubleRoomColumn" prefWidth="128.0" text="Łóżko małż." />
+                              <TableColumn fx:id="pricePerDayColumn" prefWidth="187.0" text="Cena za dobe" />
+                              <TableColumn fx:id="extraColumn" prefWidth="161.0" text="Więcej" />
                            </columns>
                         </TableView>
                      </children>

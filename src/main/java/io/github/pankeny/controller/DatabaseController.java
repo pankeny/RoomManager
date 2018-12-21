@@ -42,10 +42,11 @@ public class DatabaseController {
 
     }
 
-    public void addNewClient(String clientName, String clientLastName) {
+
+    public void addNewClient(String clientName, String clientLastName, String idCardNumber) {
 
 
-        String addClientStatement = "INSERT INTO clients(name, lastName, idCardNumber) VALUES( '" + clientName.trim() + "', '" + clientLastName.trim() + "', '');";
+        String addClientStatement = "INSERT INTO clients(name, lastName, idCardNumber) VALUES( '" + clientName.trim() + "', '" + clientLastName.trim() + "', '" + idCardNumber.trim() + "');";
 
         Connection connection = null;
 

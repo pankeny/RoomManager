@@ -2,11 +2,11 @@ package io.github.pankeny;
 
 
 import io.github.pankeny.controller.HomeController;
+import io.github.pankeny.model.Client;
 import javafx.application.Application;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
-import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.Border;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 
@@ -29,6 +29,7 @@ public class MainApp extends Application {
 
         initRootLayout();
         showHome();
+
 
 
     }
@@ -62,9 +63,9 @@ public class MainApp extends Application {
 
             rootLayout.setCenter(homeView);
 
-            HomeController controller = loader.getController();
+            HomeController homeController = loader.getController();
 
-            controller.setMainApp(this);
+            homeController.setMainApp(this);
 
 
         } catch(IOException e) {

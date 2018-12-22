@@ -45,6 +45,8 @@ public class HomeController {
     AnchorPane newClientScene;
 
     private ObservableList<Client> clientObservableList;
+
+
     private DatabaseController dbController = new DatabaseController();
 
     private MainApp mainApp;
@@ -52,8 +54,9 @@ public class HomeController {
     @FXML
     void initialize() {
         initClientTable();
-    }
 
+        clientTable.getSelectionModel().selectedItemProperty().addListener( (Observable, oldValue, newValue) -> getSelectedRow(newValue));
+    }
 
     @FXML
     public boolean addNewClient(ActionEvent event) throws IOException {
@@ -104,12 +107,20 @@ public class HomeController {
         clientTable.setItems(clientObservableList);
     }
 
+    public void getSelectedRow(Client client){
+        System.out.println(client.getId());
+    }
+
     private void setUpPopup(){
 
     }
 
     public Stage getPopupStage(){
         return popupStage;
+    }
+
+    public ObservableList<Client> getClientObservableList() {
+        return clientObservableList;
     }
 
     public void setMainApp(MainApp mainApp) {

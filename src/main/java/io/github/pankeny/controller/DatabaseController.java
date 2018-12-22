@@ -58,6 +58,8 @@ public class DatabaseController {
 
         } catch(SQLException e){
             e.printStackTrace();
+        } finally {
+            closeConnection(connection);
         }
 
     }
@@ -91,6 +93,8 @@ public class DatabaseController {
 
         } catch(SQLException e){
             e.printStackTrace();
+        } finally {
+            closeConnection(connection);
         }
 
 

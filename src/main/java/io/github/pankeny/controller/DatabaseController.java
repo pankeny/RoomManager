@@ -97,7 +97,27 @@ public class DatabaseController {
             closeConnection(connection);
         }
 
-
         return clientsList;
+    }
+
+
+    public void removeClientFromDB(Integer id){
+
+        String removeClientStatement = "DELETE FROM CLIENTS WHERE ClientId=" + id + ";";
+
+        Connection connection = null;
+
+        try{
+            connection = getConnection();
+
+            PreparedStatement preparedStatement = connection.prepareStatement(removeClientStatement);
+            preparedStatement.executeUpdate();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            closeConnection(connection);
+        }
+
     }
 }

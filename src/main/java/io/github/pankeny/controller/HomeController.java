@@ -41,11 +41,14 @@ public class HomeController {
     @FXML
     Button addClientButton;
 
+    @FXML
+    Button removeClientButton;
+
     Stage popupStage;
     AnchorPane newClientScene;
 
     private ObservableList<Client> clientObservableList;
-
+    Client selectedClient;
 
     private DatabaseController dbController = new DatabaseController();
 
@@ -55,7 +58,7 @@ public class HomeController {
     void initialize() {
         initClientTable();
 
-        clientTable.getSelectionModel().selectedItemProperty().addListener( (Observable, oldValue, newValue) -> getSelectedRow(newValue));
+        clientTable.getSelectionModel().selectedItemProperty().addListener( (Observable, oldValue, newValue) -> setCurrentClient(newValue));
     }
 
     @FXML
@@ -89,6 +92,15 @@ public class HomeController {
 
     }
 
+    public void removeClient(){
+        if (selectedClient == null) {
+            System.out.println("Client has not been choosen");
+        } else {
+            dbController.removeClientFromDB(selectedClient.getId());
+            initClientTable();
+        }
+    }
+
     @FXML
     public void addNewReservation(){
 
@@ -107,8 +119,9 @@ public class HomeController {
         clientTable.setItems(clientObservableList);
     }
 
-    public void getSelectedRow(Client client){
-        System.out.println(client.getId());
+    public void setCurrentClient(Client client){
+        this.selectedClient = client;
+        System.out.println(client);
     }
 
     private void setUpPopup(){

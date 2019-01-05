@@ -53,7 +53,7 @@ public class HomeController {
     AnchorPane editClientScene;
 
     private ObservableList<Client> clientObservableList;
-    Client selectedClient;
+    private Client selectedClient;
 
     private DatabaseController dbController = new DatabaseController();
 
@@ -97,6 +97,7 @@ public class HomeController {
 
     }
 
+    @FXML
     public void removeClient(){
         if (selectedClient == null) {
             System.out.println("Client has not been choosen");
@@ -106,30 +107,43 @@ public class HomeController {
         }
     }
 
+    @FXML
     public boolean editClient(){
 
-        try{
-            this.popupStage = new Stage();
-            System.out.println("ADDING NEW CLIENT");
+        if (selectedClient != null){
+            try{
+                this.popupStage = new Stage();
 
-            FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(getClass().getResource("/io/github/pankeny/view/EditClientDialog.fxml"));
-            editClientScene = loader.load();
+                FXMLLoader loader = new FXMLLoader();
+                loader.setLocation(getClass().getResource("/io/github/pankeny/view/EditClientDialog.fxml"));
 
-            popupStage.setTitle("Edycja klienta");
-            popupStage.setScene(new Scene(editClientScene));
-            popupStage.initModality(Modality.WINDOW_MODAL);
-            popupStage.initOwner(mainApp.getPrimaryStage());
+                editClientScene = loader.load();
 
+                popupStage.setTitle("Edycja klienta");
+                popupStage.setScene(new Scene(editClientScene));
+                popupStage.initModality(Modality.WINDOW_MODAL);
+                popupStage.initOwner(mainApp.getPrimaryStage());
 
-            popupStage.showAndWait();
+                EditClientDialogController controller = loader.getController();
+                controller.setClient(selectedClient);
+                controller.setParent(this);
 
-            return true;
+                popupStage.showAndWait();
+                initClientTable();
 
-        } catch (IOException e) {
-            e.printStackTrace();
+                return true;
+
+            } catch (IOException e) {
+                e.printStackTrace();
+                return false;
+            }
+        } else {
+
+            System.out.println("You didn't check client!");
+
             return false;
         }
+
 
     }
 

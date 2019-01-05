@@ -47,14 +47,13 @@ public class NewClientDialogController {
             String lastName = lastnameTextField.getText();
             String idCard = idCardTextField.getText();
 
+
             client.setName(name);
             client.setLastName(lastName);
 
             DatabaseController dbController = new DatabaseController();
 
             dbController.addNewClient(name, lastName, idCard);
-            System.out.println("ADDING NEW CLIENT INSIDE DIALOG WINDOW");
-            popup.setTitle("OK");
 
             popup.close();
         } else {
@@ -65,12 +64,13 @@ public class NewClientDialogController {
 
     }
 
+    @FXML
     public void handleCancel(){
         Stage popup = homeController.getPopupStage();
         popup.close();
     }
 
-    public boolean inputValidation(){
+    private boolean inputValidation(){
 
         boolean isValid = false;
 

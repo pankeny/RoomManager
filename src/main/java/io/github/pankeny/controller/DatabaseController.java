@@ -89,7 +89,15 @@ public class DatabaseController {
         executeStatement(removeClientStatement);
     }
 
-    public void executeStatement(String SQLStatement){
+    public void updateClientInDB(Integer id, String name, String lastName, String idCardNumber){
+
+        String updateClientStatement = "update clients set Name=" + "\"" + name.trim() + "\"" + ",LastName=" + "\"" + lastName.trim() + "\"" + ",IdCardNumber=" + "\"" + idCardNumber.trim() + "\"" + " where Clientid=" + id + ";";
+
+        executeStatement(updateClientStatement);
+
+    }
+
+    private void executeStatement(String SQLStatement){
         Connection connection = null;
 
         try{

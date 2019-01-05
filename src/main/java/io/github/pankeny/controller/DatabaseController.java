@@ -48,20 +48,7 @@ public class DatabaseController {
 
         String addClientStatement = "INSERT INTO clients(name, lastName, idCardNumber) VALUES( '" + clientName.trim() + "', '" + clientLastName.trim() + "', '" + idCardNumber.trim() + "');";
 
-        Connection connection = null;
-
-        try{
-
-            connection = getConnection();
-            PreparedStatement preparedStatement = connection.prepareStatement(addClientStatement);
-            preparedStatement.executeUpdate();
-
-        } catch(SQLException e){
-            e.printStackTrace();
-        } finally {
-            closeConnection(connection);
-        }
-
+        executeStatement(addClientStatement);
     }
 
     public ArrayList<Client> getClientsFromDB() {
@@ -105,12 +92,16 @@ public class DatabaseController {
 
         String removeClientStatement = "DELETE FROM CLIENTS WHERE ClientId=" + id + ";";
 
+        executeStatement(removeClientStatement);
+    }
+
+    public void executeStatement(String SQLStatement){
         Connection connection = null;
 
         try{
             connection = getConnection();
 
-            PreparedStatement preparedStatement = connection.prepareStatement(removeClientStatement);
+            PreparedStatement preparedStatement = connection.prepareStatement(SQLStatement);
             preparedStatement.executeUpdate();
 
         } catch (SQLException e) {

@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="15a9ee27-3246-456d-bbea-3d310d4499da" name="Default Changelist" comment="">
+    <list default="true" id="15a9ee27-3246-456d-bbea-3d310d4499da" name="Default Changelist" comment="add possible to remove selected client from db">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/io/github/pankeny/controller/DatabaseController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/github/pankeny/controller/DatabaseController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/io/github/pankeny/controller/HomeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/github/pankeny/controller/HomeController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/io/github/pankeny/view/Home.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/github/pankeny/view/Home.fxml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -52,19 +50,19 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="java" value="990" />
-          <entry key="txt" value="40" />
+          <entry key="java" value="1078" />
+          <entry key="txt" value="100" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="990" />
-          <entry key="PLAIN_TEXT" value="40" />
+          <entry key="JAVA" value="1078" />
+          <entry key="PLAIN_TEXT" value="100" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="2" />
+          <entry key="project.closed" value="3" />
           <entry key="project.open.time.17" value="1" />
           <entry key="project.open.time.20" value="1" />
           <entry key="project.opened" value="2" />
@@ -98,8 +96,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/io/github/pankeny/controller/DatabaseController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="148">
-              <caret line="105" column="72" selection-start-line="105" selection-start-column="72" selection-end-line="105" selection-end-column="72" />
+            <state relative-caret-position="576">
+              <caret line="59" column="12" lean-forward="true" selection-start-line="59" selection-start-column="12" selection-end-line="59" selection-end-column="12" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -428,7 +426,7 @@
       <workItem from="1545315648839" duration="61000" />
       <workItem from="1545316100441" duration="1503000" />
       <workItem from="1545432180448" duration="102000" />
-      <workItem from="1545470643380" duration="4571000" />
+      <workItem from="1545470643380" duration="7968000" />
     </task>
     <task id="LOCAL-00001" summary="Add sql create statements">
       <created>1542293384203</created>
@@ -479,17 +477,23 @@
       <option name="project" value="LOCAL" />
       <updated>1545483097621</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="add possible to remove selected client from db">
+      <created>1545485202427</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1545485202427</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="63306000" />
+    <option name="totallyTimeSpent" value="66703000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
-    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.19241774" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.19241774" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="UI Designer" order="3" />
@@ -498,7 +502,7 @@
       <window_info id="Capture Tool" order="6" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.37951806" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.37951806" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.25893825" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -568,7 +572,8 @@
     <MESSAGE value="add new client dialog popup" />
     <MESSAGE value="repair new client dialog (problem with init modal and owner again to the same stage)" />
     <MESSAGE value="get selected row in clients table" />
-    <option name="LAST_COMMIT_MESSAGE" value="get selected row in clients table" />
+    <MESSAGE value="add possible to remove selected client from db" />
+    <option name="LAST_COMMIT_MESSAGE" value="add possible to remove selected client from db" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/main/java/Model/Reservations.java" />
@@ -715,8 +720,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/io/github/pankeny/controller/DatabaseController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="148">
-          <caret line="105" column="72" selection-start-line="105" selection-start-column="72" selection-end-line="105" selection-end-column="72" />
+        <state relative-caret-position="576">
+          <caret line="59" column="12" lean-forward="true" selection-start-line="59" selection-start-column="12" selection-end-line="59" selection-end-column="12" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

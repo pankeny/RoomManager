@@ -1,8 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Menu?>
 <?import javafx.scene.control.MenuBar?>
@@ -15,7 +12,7 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.Pane?>
 
-<BorderPane prefHeight="768.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="io.github.pankeny.controller.HomeController">
+<BorderPane prefHeight="768.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="io.github.pankeny.controller.HomeController">
    <top>
       <MenuBar BorderPane.alignment="CENTER">
          <menus>
@@ -93,6 +90,7 @@
             <Button fx:id="addReservationButton" layoutX="16.0" layoutY="14.0" mnemonicParsing="false" onAction="#addNewReservation" prefHeight="27.0" prefWidth="169.0" text="Dodaj rezerwacje" />
             <Button fx:id="addClientButton" layoutX="16.0" layoutY="55.0" mnemonicParsing="false" onAction="#addNewClient" prefHeight="27.0" prefWidth="169.0" text="Dodaj klienta" />
             <Button fx:id="removeClientButton" layoutX="16.0" layoutY="97.0" mnemonicParsing="false" onAction="#removeClient" prefHeight="27.0" prefWidth="169.0" text="Usuń klienta" />
+            <Button fx:id="editClientButton" layoutX="16.0" layoutY="140.0" mnemonicParsing="false" onAction="#editClient" prefHeight="27.0" prefWidth="169.0" text="Edytuj klienta" />
          </children>
       </Pane>
    </left>

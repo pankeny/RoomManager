@@ -15,6 +15,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
+import javax.swing.*;
 import java.io.IOException;
 
 public class HomeController {
@@ -44,8 +45,12 @@ public class HomeController {
     @FXML
     Button removeClientButton;
 
+    @FXML
+    Button editClientButton;
+
     Stage popupStage;
     AnchorPane newClientScene;
+    AnchorPane editClientScene;
 
     private ObservableList<Client> clientObservableList;
     Client selectedClient;
@@ -62,7 +67,7 @@ public class HomeController {
     }
 
     @FXML
-    public boolean addNewClient(ActionEvent event) throws IOException {
+    public boolean addNewClient(){
     try{
         this.popupStage = new Stage();
         System.out.println("ADDING NEW CLIENT");
@@ -101,6 +106,33 @@ public class HomeController {
         }
     }
 
+    public boolean editClient(){
+
+        try{
+            this.popupStage = new Stage();
+            System.out.println("ADDING NEW CLIENT");
+
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(getClass().getResource("/io/github/pankeny/view/EditClientDialog.fxml"));
+            editClientScene = loader.load();
+
+            popupStage.setTitle("Edycja klienta");
+            popupStage.setScene(new Scene(editClientScene));
+            popupStage.initModality(Modality.WINDOW_MODAL);
+            popupStage.initOwner(mainApp.getPrimaryStage());
+
+
+            popupStage.showAndWait();
+
+            return true;
+
+        } catch (IOException e) {
+            e.printStackTrace();
+            return false;
+        }
+
+    }
+
     @FXML
     public void addNewReservation(){
 
@@ -122,6 +154,10 @@ public class HomeController {
     public void setCurrentClient(Client client){
         this.selectedClient = client;
         System.out.println(client);
+    }
+
+    public Client getCurrentClient(){
+        return selectedClient;
     }
 
     private void setUpPopup(){

@@ -36,12 +36,6 @@ public class DatabaseController {
 
     }
 
-    public void addReservation(String clientName, String clientLastname, int RoomNumber, Date startDate, Date endDate) {
-
-
-
-    }
-
 
     public void addNewClient(String clientName, String clientLastName, String idCardNumber) {
 

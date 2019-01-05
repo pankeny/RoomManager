@@ -24,7 +24,6 @@ public class NewClientDialogController {
     Label validationInfoLabel;
 
     HomeController homeController;
-    Stage popupStage;
 
 
     @FXML

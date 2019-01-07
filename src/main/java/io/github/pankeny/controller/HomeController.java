@@ -95,7 +95,6 @@ public class HomeController {
     void initialize() {
         initClientTable();
         initRoomTable();
-    }
 
         clientTable.getSelectionModel().selectedItemProperty().addListener( (Observable, oldValue, newValue) -> setCurrentClient(newValue));
     }

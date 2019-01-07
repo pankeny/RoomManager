@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.text.Font?>
+
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="io.github.pankeny.controller.ReservationController">
+   <center>
+      <AnchorPane BorderPane.alignment="CENTER">
+         <children>
+            <DatePicker fx:id="arrivalDateDP" layoutX="78.0" layoutY="116.0" />
+            <DatePicker fx:id="departureDateDP" layoutX="779.0" layoutY="116.0" />
+            <Label layoutX="78.0" layoutY="91.0" text="Data przyjazdu" />
+            <Label layoutX="779.0" layoutY="92.0" text="Data wyjazdu" />
+            <Button layoutX="962.0" layoutY="729.0" mnemonicParsing="false" text="Dodaj" AnchorPane.bottomAnchor="14.0" AnchorPane.rightAnchor="14.0" />
+            <Button layoutX="903.0" layoutY="729.0" mnemonicParsing="false" text="Anuluj" AnchorPane.bottomAnchor="14.0" AnchorPane.rightAnchor="71.0" />
+            <TableView layoutX="74.0" layoutY="212.0" prefHeight="502.0" prefWidth="876.0">
+              <columns>
+                <TableColumn prefWidth="75.0" text="C1" />
+                <TableColumn prefWidth="75.0" text="C2" />
+              </columns>
+            </TableView>
+            <Label layoutX="319.0" layoutY="57.0" text="Wybierz date początkową i końcową" textAlignment="CENTER" textFill="#04a113" AnchorPane.topAnchor="57.0">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+   </center>
+</BorderPane>

@@ -28,8 +28,8 @@ public class MainApp extends Application {
         this.primaryStage.setTitle("Rooms Manager");
 
         initRootLayout();
-        showHome();
-
+//        showHome();
+        showReservation();
 
 
     }
@@ -57,8 +57,6 @@ public class MainApp extends Application {
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(getClass().getResource("/io/github/pankeny/view/Home.fxml"));
 
-            System.out.println(this);
-
             BorderPane homeView =  loader.load();
 
             rootLayout.setCenter(homeView);
@@ -72,6 +70,19 @@ public class MainApp extends Application {
             e.printStackTrace();
         }
 
+    }
+
+    private void showReservation(){
+        try{
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(getClass().getResource("view/Reservation.fxml"));
+
+            BorderPane reservationView = loader.load();
+
+            rootLayout.setCenter(reservationView);
+        }catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
 

@@ -8,6 +8,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -139,8 +140,12 @@ public class HomeController {
             }
         } else {
 
-            System.out.println("You didn't check client!");
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Brak zaznaczenia");
+            alert.setHeaderText("Brak zaznaczenia");
+            alert.setContentText("Nie zaznaczono klienta! Jeżeli chcesz edytować dane, proszę zaznacz konkretnego klienta.");
 
+            alert.showAndWait();
             return false;
         }
 

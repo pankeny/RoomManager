@@ -7,7 +7,7 @@ public class testMain {
     public static void main(String[] args) {
         DatabaseController databaseController = new DatabaseController();
 
-        System.out.println(databaseController.getClientsFromDB());
+        System.out.println(databaseController.getRoomsFromDB().toString());
 
 
     }

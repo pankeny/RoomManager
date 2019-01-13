@@ -2,9 +2,9 @@ package io.github.pankeny.controller;
 
 import io.github.pankeny.model.Client;
 import io.github.pankeny.model.Room;
-import javafx.collections.ObservableList;
 
 import java.sql.*;
+import java.time.LocalDate;
 import java.util.ArrayList;
 
 public class DatabaseController {
@@ -98,18 +98,7 @@ public class DatabaseController {
 
             while(resultSet.next()){
 
-                Room room = new Room();
-
-                room.setNumber(resultSet.getInt("RoomNumber"));
-                room.setDoubleRoom(resultSet.getInt("DoubleRoom") == 1 ? true : false); // in mysql there's only values 0 and 1 for boolean type, so its parse boolean from int.
-                room.setIsEngaged(resultSet.getInt("IsEngaged") == 1 ? true : false);
-                room.setNumberOfPeople(resultSet.getInt("NumberOfPeople"));
-                room.setPricePerDay(resultSet.getDouble("PricePerDay"));
-                room.setExtra(resultSet.getString("Extra"));
-
-
-
-                roomsList.add(room);
+                roomsList.add(setRoomDetails(resultSet));
 
             }
 
@@ -120,6 +109,36 @@ public class DatabaseController {
         return roomsList;
 
 
+    }
+
+    public ArrayList<Room> getAvailableRoomsFromDB(LocalDate startDate, LocalDate endDate){
+        ArrayList<Room> availableRooms = new ArrayList<>();
+
+        System.out.println(startDate + " " + endDate);
+        String getAvailableRoomsStatement = "SELECT * FROM rooms WHERE RoomNumber NOT IN( SELECT RoomId from reservations where StartDate >= '" + startDate  + "'  AND EndDate <= '" + endDate + "');";
+
+        Connection connection = null;
+
+        try{
+            connection = getConnection();
+
+            PreparedStatement preparedStatement = connection.prepareStatement(getAvailableRoomsStatement);
+            ResultSet resultSet = preparedStatement.executeQuery();
+
+            while(resultSet.next()){
+
+
+                availableRooms.add(setRoomDetails(resultSet));
+
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            closeConnection(connection);
+        }
+
+        return availableRooms;
     }
 
 
@@ -138,6 +157,8 @@ public class DatabaseController {
 
     }
 
+
+
     private void executeStatement(String SQLStatement){
         Connection connection = null;
 
@@ -152,6 +173,18 @@ public class DatabaseController {
         } finally {
             closeConnection(connection);
         }
-
     }
+
+    private Room setRoomDetails(ResultSet resultSet) throws SQLException{
+        Room room = new Room();
+        room.setNumber(resultSet.getInt("RoomNumber"));
+        room.setNumberOfPeople(resultSet.getInt("NumberOfPeople"));
+        room.setDoubleRoom(resultSet.getInt("DoubleRoom") == 1 ? true : false); // in mysql there's only values 0 and 1 for boolean type, so its parsed boolean from int.
+        room.setIsEngaged(resultSet.getInt("IsEngaged") == 1 ? true : false);
+        room.setPricePerDay(resultSet.getDouble("PricePerDay"));
+        room.setExtra(resultSet.getString("Extra"));
+
+        return room;
+    }
+
 }

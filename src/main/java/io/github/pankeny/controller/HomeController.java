@@ -44,7 +44,6 @@ public class HomeController {
 
     // Room Table
 
-
     @FXML
     TableView<Room> roomTableView;
 

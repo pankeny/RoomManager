@@ -111,11 +111,11 @@ public class DatabaseController {
 
     }
 
-    public ArrayList<Room> getAvailableRoomsFromDB(LocalDate startDate, LocalDate endDate){
+    public ArrayList<Room> getAvailableRoomsFromDB(LocalDate checkIn, LocalDate checkOut){
         ArrayList<Room> availableRooms = new ArrayList<>();
 
-        System.out.println(startDate + " " + endDate);
-        String getAvailableRoomsStatement = "SELECT * FROM rooms WHERE RoomNumber NOT IN( SELECT RoomId from reservations where StartDate >= '" + startDate  + "'  AND EndDate <= '" + endDate + "');";
+        System.out.println(checkIn + " " + checkOut);
+        String getAvailableRoomsStatement = "SELECT * FROM rooms WHERE RoomNumber NOT IN( SELECT RoomId from reservations where EndDate > '" + checkIn  + "'  AND StartDate < '" + checkOut + "');";
 
         Connection connection = null;
 

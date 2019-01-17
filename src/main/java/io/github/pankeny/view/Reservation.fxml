@@ -17,7 +17,7 @@
             <DatePicker fx:id="departureDateDP" layoutX="293.0" layoutY="141.0" />
             <Label layoutX="74.0" layoutY="116.0" text="Data przyjazdu" />
             <Label layoutX="293.0" layoutY="116.0" text="Data wyjazdu" />
-            <Button layoutX="962.0" layoutY="729.0" mnemonicParsing="false" text="Dodaj" AnchorPane.bottomAnchor="14.0" AnchorPane.rightAnchor="14.0" />
+            <Button layoutX="962.0" layoutY="729.0" mnemonicParsing="false" onAction="#addReservation" text="Dodaj" AnchorPane.bottomAnchor="14.0" AnchorPane.rightAnchor="14.0" />
             <Button layoutX="903.0" layoutY="729.0" mnemonicParsing="false" text="Anuluj" AnchorPane.bottomAnchor="14.0" AnchorPane.rightAnchor="71.0" />
             <Label layoutX="319.0" layoutY="57.0" text="Wybierz date początkową i końcową" textAlignment="CENTER" textFill="#04a113" AnchorPane.topAnchor="57.0">
                <font>
@@ -25,7 +25,7 @@
                </font>
             </Label>
             <Button layoutX="814.0" layoutY="141.0" mnemonicParsing="false" onAction="#checkAvailableRooms" text="Sprawdź wolne pokoje" />
-            <Label fx:id="errorLabel" layoutX="498.0" layoutY="700.0" text="Label" textFill="RED" visible="false">
+            <Label fx:id="errorLabel" layoutX="406.0" layoutY="704.0" prefHeight="49.0" prefWidth="227.0" text="Label" textAlignment="CENTER" textFill="RED" wrapText="true" AnchorPane.leftAnchor="406.0" AnchorPane.rightAnchor="404.0">
                <font>
                   <Font size="16.0" />
                </font>

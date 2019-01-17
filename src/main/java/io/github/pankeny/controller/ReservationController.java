@@ -11,6 +11,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 
+import java.time.LocalDate;
 
 public class ReservationController {
 
@@ -49,6 +50,8 @@ public class ReservationController {
     ObservableList<Room> roomObservableList;
     DatabaseController dbController = new DatabaseController();
 
+    Room selectedRoom;
+
     @FXML
     public void initialize(){
 
@@ -56,21 +59,44 @@ public class ReservationController {
             System.out.println(arrivalDateDP.getValue().getClass());
         } );
 
+        roomTableView.getSelectionModel().selectedItemProperty().addListener( (Observable, oldValue, newValue) -> setCurrentRoom(newValue));
+
+
     }
 
 
     @FXML
     public void checkAvailableRooms(){
-        if (arrivalDateDP.getValue() != null && departureDateDP.getValue() != null){
 
+        System.out.println(isDateCorrect());
+
+        if (isDateCorrect()){
+
+            errorLabel.setText("");
+            errorLabel.setVisible(false);
             initRoomTable();
 
+        } else {
+
+            errorLabel.setText("Wybrane daty są niepoprawne.");
+            errorLabel.setVisible(true);
+
+        }
+    }
+
+    @FXML
+    public void addReservation(){
+        if(selectedRoom != null){
+            arrivalDateDP.setValue(LocalDate.of(2017,01,27));
+        } else {
+            errorLabel.setText("Nie wybrano żadnego pokoju");
+            errorLabel.setVisible(true);
         }
     }
 
     private void initRoomTable(){
 
-//        roomObservableList = FXCollections.observableArrayList(dbController.getRoomsFromDB());
+//    `
         roomObservableList = FXCollections.observableArrayList(dbController.getAvailableRoomsFromDB(arrivalDateDP.getValue(), departureDateDP.getValue()));
 
         numberColumn.setCellValueFactory( e -> e.getValue().numberProperty() );
@@ -79,11 +105,20 @@ public class ReservationController {
         doubleRoomColumn.setCellValueFactory( e -> (e.getValue().isDoubleRoom() ? new SimpleStringProperty("Tak") : new SimpleStringProperty("Nie"))); // convert boolean type to string yes/no
         pricePerDayColumn.setCellValueFactory( e -> e.getValue().pricePerDayProperty() );
         extraColumn.setCellValueFactory( e -> e.getValue().extraProperty() );
-
         roomTableView.setItems(roomObservableList);
+
     }
     public boolean isDateCorrect(){
 
-        return true;
+        boolean checkIsCorrect = false;
+
+        if ((arrivalDateDP.getValue() != null && departureDateDP.getValue() != null) && arrivalDateDP.getValue().isBefore(departureDateDP.getValue()))
+            checkIsCorrect = true;
+
+        return checkIsCorrect;
+    }
+
+    private void setCurrentRoom(Room room){
+        this.selectedRoom = room;
     }
 }

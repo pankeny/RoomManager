@@ -9,8 +9,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="io.github.pankeny.controller.SelectClientReservationsController">
    <center>
       <Pane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <children>
@@ -19,14 +18,17 @@
                   <Font size="21.0" />
                </font>
             </Label>
-            <TableView layoutX="21.0" layoutY="123.0" prefHeight="522.0" prefWidth="633.0">
-              <columns>
-                <TableColumn prefWidth="75.0" text="C1" />
-                <TableColumn prefWidth="75.0" text="C2" />
-              </columns>
-            </TableView>
             <Button layoutX="609.0" layoutY="729.0" mnemonicParsing="false" text="Dodaj" />
             <Button layoutX="543.0" layoutY="729.0" mnemonicParsing="false" text="Wstecz" />
+            <Button layoutX="478.0" layoutY="729.0" mnemonicParsing="false" onAction="#handleCancel" text="Anuluj" />
+            <TableView fx:id="clientTable" layoutX="21.0" layoutY="152.0" prefHeight="465.0" prefWidth="631.0">
+               <columns>
+                  <TableColumn fx:id="clientIdColumn" prefWidth="84.0" text="Identyfikator" />
+                  <TableColumn fx:id="clientNameColumn" prefWidth="164.0" text="Imie" />
+                  <TableColumn fx:id="clientLastNameColumn" minWidth="0.0" prefWidth="254.0" text="Nazwisko" />
+                  <TableColumn fx:id="clientIdCardColumn" prefWidth="129.0" text="Numer dowodu" />
+               </columns>
+            </TableView>
          </children>
       </Pane>
    </center>

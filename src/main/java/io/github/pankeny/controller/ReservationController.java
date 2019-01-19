@@ -90,7 +90,7 @@ public class ReservationController {
     @FXML
     public void addReservation(){
         if(selectedRoom != null){
-            mainApp.showHome();
+            mainApp.showSelectClient(arrivalDateDP.getValue(), departureDateDP.getValue(), selectedRoom);
         } else {
             errorLabel.setText("Nie wybrano żadnego pokoju");
             errorLabel.setVisible(true);

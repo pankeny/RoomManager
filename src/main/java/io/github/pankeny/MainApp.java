@@ -3,7 +3,9 @@ package io.github.pankeny;
 
 import io.github.pankeny.controller.HomeController;
 import io.github.pankeny.controller.ReservationController;
+import io.github.pankeny.controller.SelectClientReservationsController;
 import io.github.pankeny.model.Client;
+import io.github.pankeny.model.Room;
 import javafx.application.Application;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXMLLoader;
@@ -12,6 +14,7 @@ import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.time.LocalDate;
 
 public class MainApp extends Application {
 
@@ -83,6 +86,24 @@ public class MainApp extends Application {
             controller.setMainApp(this);
 
         }catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void showSelectClient(LocalDate checkIn, LocalDate checkOut, Room room){
+        try{
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(getClass().getResource("view/SelectClientReservations.fxml"));
+
+            BorderPane selectClientView = loader.load();
+
+            rootLayout.setCenter(selectClientView);
+
+            SelectClientReservationsController controller = loader.getController();
+            controller.setMainApp(this);
+            controller.passData(checkIn, checkOut, room);
+
+        } catch(IOException e) {
             e.printStackTrace();
         }
     }

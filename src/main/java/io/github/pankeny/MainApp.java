@@ -2,6 +2,7 @@ package io.github.pankeny;
 
 
 import io.github.pankeny.controller.HomeController;
+import io.github.pankeny.controller.ReservationController;
 import io.github.pankeny.model.Client;
 import javafx.application.Application;
 import javafx.collections.ObservableList;
@@ -28,10 +29,7 @@ public class MainApp extends Application {
         this.primaryStage.setTitle("Rooms Manager");
 
         initRootLayout();
-//        showHome();
-        showReservation();
-
-
+        showHome();
     }
 
 
@@ -51,7 +49,7 @@ public class MainApp extends Application {
 }
 
 
-    private void showHome(){
+    public void showHome(){
 
         try{
             FXMLLoader loader = new FXMLLoader();
@@ -72,7 +70,7 @@ public class MainApp extends Application {
 
     }
 
-    private void showReservation(){
+    public void showReservation(){
         try{
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(getClass().getResource("view/Reservation.fxml"));
@@ -80,6 +78,10 @@ public class MainApp extends Application {
             BorderPane reservationView = loader.load();
 
             rootLayout.setCenter(reservationView);
+
+            ReservationController controller = loader.getController();
+            controller.setMainApp(this);
+
         }catch (IOException e) {
             e.printStackTrace();
         }

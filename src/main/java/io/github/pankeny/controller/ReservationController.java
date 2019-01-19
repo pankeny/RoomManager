@@ -1,5 +1,6 @@
 package io.github.pankeny.controller;
 
+import io.github.pankeny.MainApp;
 import io.github.pankeny.model.Room;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
@@ -52,6 +53,8 @@ public class ReservationController {
 
     Room selectedRoom;
 
+    private MainApp mainApp;
+
     @FXML
     public void initialize(){
 
@@ -87,11 +90,16 @@ public class ReservationController {
     @FXML
     public void addReservation(){
         if(selectedRoom != null){
-            arrivalDateDP.setValue(LocalDate.of(2017,01,27));
+            mainApp.showHome();
         } else {
             errorLabel.setText("Nie wybrano żadnego pokoju");
             errorLabel.setVisible(true);
         }
+    }
+
+    @FXML
+    public void handleCancel(){
+        mainApp.showHome();
     }
 
     private void initRoomTable(){
@@ -120,5 +128,9 @@ public class ReservationController {
 
     private void setCurrentRoom(Room room){
         this.selectedRoom = room;
+    }
+
+    public void setMainApp(MainApp mainApp) {
+        this.mainApp = mainApp;
     }
 }

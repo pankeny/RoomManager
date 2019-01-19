@@ -1,13 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="BookmarkManager">
-    <bookmark url="file://$PROJECT_DIR$/src/main/java/io/github/pankeny/MainApp.java" line="69" />
+    <bookmark url="file://$PROJECT_DIR$/src/main/java/io/github/pankeny/MainApp.java" line="67" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="15a9ee27-3246-456d-bbea-3d310d4499da" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/io/github/pankeny/view/ChooseClientReservation.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/io/github/pankeny/view/SelectClientReservations.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/io/github/pankeny/MainApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/github/pankeny/MainApp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/io/github/pankeny/controller/HomeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/github/pankeny/controller/HomeController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/io/github/pankeny/controller/ReservationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/github/pankeny/controller/ReservationController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/io/github/pankeny/view/ChooseClientReservation.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/io/github/pankeny/view/Reservation.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/github/pankeny/view/Reservation.fxml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -37,19 +40,23 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/io/github/pankeny/MainApp.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="306">
-              <caret line="29" column="25" selection-start-line="29" selection-start-column="25" selection-end-line="29" selection-end-column="25" />
+            <state relative-caret-position="333">
+              <caret line="68" column="9" lean-forward="true" selection-start-line="68" selection-start-column="9" selection-end-line="68" selection-end-column="9" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/io/github/pankeny/controller/ReservationController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="187">
-              <caret line="14" lean-forward="true" selection-start-line="14" selection-end-line="14" />
+            <state relative-caret-position="183">
+              <caret line="95" column="40" lean-forward="true" selection-start-line="95" selection-start-column="40" selection-end-line="95" selection-end-column="40" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="e#2210#2211#0" expanded="true" />
+                <element signature="e#2244#2245#0" expanded="true" />
+                <element signature="e#3523#3524#0" expanded="true" />
+                <element signature="e#3560#3561#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -57,34 +64,39 @@
       </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/io/github/pankeny/view/NewClientDialog.fxml">
-          <provider editor-type-id="JavaFX-Scene-Builder" />
           <provider selected="true" editor-type-id="text-editor" />
+          <provider editor-type-id="JavaFX-Scene-Builder" />
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/io/github/pankeny/view/Home.fxml">
-          <provider editor-type-id="JavaFX-Scene-Builder" />
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="272">
               <caret line="16" column="45" selection-start-line="16" selection-start-column="45" selection-end-line="16" selection-end-column="45" />
             </state>
           </provider>
+          <provider editor-type-id="JavaFX-Scene-Builder" />
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/io/github/pankeny/view/ChooseClientReservation.java">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/io/github/pankeny/view/SelectClientReservations.fxml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="34">
-              <caret line="2" column="38" lean-forward="true" selection-start-line="2" selection-start-column="38" selection-end-line="2" selection-end-column="38" />
+            <state relative-caret-position="804">
+              <caret line="49" column="4" selection-start-line="49" selection-start-column="4" selection-end-line="49" selection-end-column="4" />
             </state>
           </provider>
+          <provider editor-type-id="JavaFX-Scene-Builder" />
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/io/github/pankeny/controller/HomeController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1309">
-              <caret line="97" column="44" selection-start-line="97" selection-end-line="98" />
+            <state relative-caret-position="401">
+              <caret line="185" column="9" lean-forward="true" selection-start-line="185" selection-start-column="9" selection-end-line="185" selection-end-column="9" />
+              <folding>
+                <element signature="e#4811#4812#0" expanded="true" />
+                <element signature="e#4833#4834#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -121,8 +133,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="FxmlFile" />
         <option value="Class" />
+        <option value="FxmlFile" />
       </list>
     </option>
   </component>
@@ -159,9 +171,10 @@
         <option value="$PROJECT_DIR$/src/main/java/io/github/pankeny/testMain.java" />
         <option value="$PROJECT_DIR$/src/main/java/io/github/pankeny/model/Room.java" />
         <option value="$PROJECT_DIR$/src/main/java/io/github/pankeny/view/Reservation.fxml" />
+        <option value="$PROJECT_DIR$/src/main/java/io/github/pankeny/controller/DatabaseController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/io/github/pankeny/view/SelectClientReservations.fxml" />
         <option value="$PROJECT_DIR$/src/main/java/io/github/pankeny/MainApp.java" />
         <option value="$PROJECT_DIR$/src/main/java/io/github/pankeny/controller/HomeController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/io/github/pankeny/controller/DatabaseController.java" />
         <option value="$PROJECT_DIR$/src/main/java/io/github/pankeny/controller/ReservationController.java" />
       </list>
     </option>
@@ -204,23 +217,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope">
-        <subPane subId="Scope 'Project Files'; set:Project Files; class com.intellij.psi.search.scope.ProjectFilesScope">
-          <expand>
-            <path>
-              <item name="RoomManager" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="RoomManager" type="2674bda8:ScopeViewTreeModel$GroupNode" />
-            </path>
-            <path>
-              <item name="RoomManager" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="RoomManager" type="2674bda8:ScopeViewTreeModel$GroupNode" />
-              <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
-      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -276,12 +272,29 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope">
+        <subPane subId="Scope 'Project Files'; set:Project Files; class com.intellij.psi.search.scope.ProjectFilesScope">
+          <expand>
+            <path>
+              <item name="RoomManager" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="RoomManager" type="2674bda8:ScopeViewTreeModel$GroupNode" />
+            </path>
+            <path>
+              <item name="RoomManager" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="RoomManager" type="2674bda8:ScopeViewTreeModel$GroupNode" />
+              <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1547765009967" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1547914394183" />
     <property name="last_opened_file_path" value="$USER_HOME$/AppData/Local/SceneBuilder/SceneBuilder.exe" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -386,7 +399,8 @@
       <workItem from="1547411313244" duration="5778000" />
       <workItem from="1547670937466" duration="2141000" />
       <workItem from="1547759141714" duration="2383000" />
-      <workItem from="1547763768568" duration="1240000" />
+      <workItem from="1547763768568" duration="2470000" />
+      <workItem from="1547908563303" duration="1648000" />
     </task>
     <task id="LOCAL-00001" summary="Add sql create statements">
       <created>1542293384203</created>
@@ -451,17 +465,24 @@
       <option name="project" value="LOCAL" />
       <updated>1547592053219</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="add security for not correct dates">
+      <created>1547765061824</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1547765061825</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="83560000" />
+    <option name="totallyTimeSpent" value="86438000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25799572" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.26066098" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="UI Designer" order="3" />
@@ -470,7 +491,7 @@
       <window_info id="Capture Tool" order="6" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32936078" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.32936078" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.32936078" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.25893825" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -541,10 +562,10 @@
     <MESSAGE value="merge clients and rooms branch" />
     <MESSAGE value="add Reservation view, bind controller and display it" />
     <MESSAGE value="corrected select statement used for searching free rooms in typed period" />
-    <option name="LAST_COMMIT_MESSAGE" value="corrected select statement used for searching free rooms in typed period" />
+    <MESSAGE value="add security for not correct dates" />
+    <option name="LAST_COMMIT_MESSAGE" value="add security for not correct dates" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/Model/Reservations.java" />
     <entry file="file://$PROJECT_DIR$/src/main/java/io/github/pankeny/DAO/ReservationsDAO.java" />
     <entry file="file://$PROJECT_DIR$/src/main/java/io/github/pankeny/model/Reservation.java">
       <provider selected="true" editor-type-id="text-editor">
@@ -765,23 +786,25 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/io/github/pankeny/view/Reservation.fxml">
-      <provider editor-type-id="JavaFX-Scene-Builder" />
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="646">
           <caret line="38" column="20" selection-start-line="38" selection-start-column="20" selection-end-line="38" selection-end-column="20" />
         </state>
       </provider>
+      <provider editor-type-id="JavaFX-Scene-Builder" />
     </entry>
     <entry file="file://$PROJECT_DIR$/pom.xml">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/io/github/pankeny/controller/HomeController.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/io/github/pankeny/view/Root.fxml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1309">
-          <caret line="97" column="44" selection-start-line="97" selection-end-line="98" />
+        <state relative-caret-position="170">
+          <caret line="10" selection-start-line="10" selection-end-line="10" />
         </state>
       </provider>
+      <provider editor-type-id="JavaFX-Scene-Builder" />
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/io/github/pankeny/view/ChooseClientReservation.java" />
     <entry file="file://$PROJECT_DIR$/src/main/java/io/github/pankeny/controller/EditClientDialogController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="68">
@@ -803,47 +826,55 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/io/github/pankeny/MainApp.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="29" column="25" selection-start-line="29" selection-start-column="25" selection-end-line="29" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/io/github/pankeny/view/Root.fxml">
-      <provider editor-type-id="JavaFX-Scene-Builder" />
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="10" selection-start-line="10" selection-end-line="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/io/github/pankeny/controller/ReservationController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="14" lean-forward="true" selection-start-line="14" selection-end-line="14" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/io/github/pankeny/view/NewClientDialog.fxml">
-      <provider editor-type-id="JavaFX-Scene-Builder" />
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/io/github/pankeny/view/Home.fxml">
-      <provider editor-type-id="JavaFX-Scene-Builder" />
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="272">
           <caret line="16" column="45" selection-start-line="16" selection-start-column="45" selection-end-line="16" selection-end-column="45" />
         </state>
       </provider>
+      <provider editor-type-id="JavaFX-Scene-Builder" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/io/github/pankeny/view/ChooseClientReservation.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/io/github/pankeny/view/NewClientDialog.fxml">
+      <provider selected="true" editor-type-id="text-editor" />
+      <provider editor-type-id="JavaFX-Scene-Builder" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/io/github/pankeny/view/SelectClientReservations.fxml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="38" lean-forward="true" selection-start-line="2" selection-start-column="38" selection-end-line="2" selection-end-column="38" />
+        <state relative-caret-position="804">
+          <caret line="49" column="4" selection-start-line="49" selection-start-column="4" selection-end-line="49" selection-end-column="4" />
+        </state>
+      </provider>
+      <provider editor-type-id="JavaFX-Scene-Builder" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/io/github/pankeny/MainApp.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="333">
+          <caret line="68" column="9" lean-forward="true" selection-start-line="68" selection-start-column="9" selection-end-line="68" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/io/github/pankeny/controller/HomeController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="401">
+          <caret line="185" column="9" lean-forward="true" selection-start-line="185" selection-start-column="9" selection-end-line="185" selection-end-column="9" />
+          <folding>
+            <element signature="e#4811#4812#0" expanded="true" />
+            <element signature="e#4833#4834#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/io/github/pankeny/controller/ReservationController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="183">
+          <caret line="95" column="40" lean-forward="true" selection-start-line="95" selection-start-column="40" selection-end-line="95" selection-end-column="40" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#2210#2211#0" expanded="true" />
+            <element signature="e#2244#2245#0" expanded="true" />
+            <element signature="e#3523#3524#0" expanded="true" />
+            <element signature="e#3560#3561#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

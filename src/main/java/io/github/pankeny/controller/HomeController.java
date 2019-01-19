@@ -185,7 +185,7 @@ public class HomeController {
 
     @FXML
     public void addNewReservation(){
-
+        mainApp.showReservation();
     }
 
     // INIT METHODS

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <center>
+      <Pane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <children>
+            <Label layoutX="232.0" layoutY="34.0" text="Lub wybierz obecnego" textAlignment="CENTER">
+               <font>
+                  <Font size="21.0" />
+               </font>
+            </Label>
+            <TableView layoutX="21.0" layoutY="123.0" prefHeight="522.0" prefWidth="633.0">
+              <columns>
+                <TableColumn prefWidth="75.0" text="C1" />
+                <TableColumn prefWidth="75.0" text="C2" />
+              </columns>
+            </TableView>
+            <Button layoutX="609.0" layoutY="729.0" mnemonicParsing="false" text="Dodaj" />
+            <Button layoutX="543.0" layoutY="729.0" mnemonicParsing="false" text="Wstecz" />
+         </children>
+      </Pane>
+   </center>
+   <left>
+      <Pane prefHeight="600.0" prefWidth="350.0" BorderPane.alignment="CENTER">
+         <children>
+            <Label layoutX="74.0" layoutY="37.0" text="Dodaj nowego klienta">
+               <font>
+                  <Font size="21.0" />
+               </font>
+            </Label>
+            <TextField layoutX="57.0" layoutY="308.0" prefWidth="237.0" />
+            <TextField layoutX="57.0" layoutY="387.0" prefWidth="237.0" />
+            <Label layoutX="57.0" layoutY="281.0" text="Imie" />
+            <Label layoutX="57.0" layoutY="361.0" text="Nazwisko" />
+            <Label layoutX="57.0" layoutY="438.0" text="Numer dowodu" />
+            <TextField layoutX="57.0" layoutY="462.0" prefWidth="237.0" />
+         </children>
+      </Pane>
+   </left>
+    
+</BorderPane>

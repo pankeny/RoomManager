@@ -17,7 +17,7 @@
             <DatePicker fx:id="departureDateDP" layoutX="293.0" layoutY="141.0" />
             <Label layoutX="74.0" layoutY="116.0" text="Data przyjazdu" />
             <Label layoutX="293.0" layoutY="116.0" text="Data wyjazdu" />
-            <Button layoutX="962.0" layoutY="729.0" mnemonicParsing="false" onAction="#addReservation" text="Dodaj" AnchorPane.bottomAnchor="14.0" AnchorPane.rightAnchor="14.0" />
+            <Button layoutX="962.0" layoutY="729.0" mnemonicParsing="false" onAction="#addReservation" text="Dalej" AnchorPane.bottomAnchor="14.0" AnchorPane.rightAnchor="14.0" />
             <Button layoutX="903.0" layoutY="729.0" mnemonicParsing="false" onAction="#handleCancel" text="Anuluj" AnchorPane.bottomAnchor="14.0" AnchorPane.rightAnchor="71.0" />
             <Label layoutX="319.0" layoutY="57.0" text="Wybierz date początkową i końcową" textAlignment="CENTER" textFill="#04a113" AnchorPane.topAnchor="57.0">
                <font>

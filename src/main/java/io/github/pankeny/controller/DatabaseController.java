@@ -157,7 +157,17 @@ public class DatabaseController {
 
     }
 
+    public void addReservation(Integer clientId, Integer roomId, LocalDate checkIn, LocalDate checkOut, Double amountDue){
+        String addReservationStatement = "INSERT INTO `roomsmanager`.`reservations`\n" +
+                "(`ClientId`,\n" +
+                "`RoomId`,\n" +
+                "`StartDate`,\n" +
+                "`EndDate`,\n" +
+                "`AmountDue`)\n" +
+                "VALUES(" + clientId + ", " + roomId + ", '" + checkIn + "', '" + checkOut + "', " + amountDue + ");";
 
+        executeStatement(addReservationStatement);
+    }
 
     private void executeStatement(String SQLStatement){
         Connection connection = null;

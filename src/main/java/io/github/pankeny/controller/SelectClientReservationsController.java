@@ -11,6 +11,8 @@ import javafx.scene.control.TableView;
 
 import java.time.LocalDate;
 
+import static java.time.temporal.ChronoUnit.DAYS;
+
 public class SelectClientReservationsController {
 
     //Client TABLE
@@ -43,6 +45,19 @@ public class SelectClientReservationsController {
 
         clientTable.getSelectionModel().selectedItemProperty().addListener( (Observable, oldValue, newValue) -> setCurrentClient(newValue));
 
+    }
+
+    @FXML
+    public void addReservation(){
+        if (selectedClient != null) {
+            Long daysBetween = DAYS.between(checkIn, checkOut);
+            Double amountDue = daysBetween * room.getPricePerDay() * room.getNumberOfPeople();
+
+            dbController.addReservation(selectedClient.getId(), room.getNumber(), checkIn, checkOut, amountDue);
+            mainApp.showHome();
+        } else {
+            System.out.println("client not selected");
+        }
     }
 
     @FXML

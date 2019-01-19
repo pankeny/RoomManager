@@ -18,7 +18,7 @@
                   <Font size="21.0" />
                </font>
             </Label>
-            <Button layoutX="609.0" layoutY="729.0" mnemonicParsing="false" text="Dodaj" />
+            <Button layoutX="609.0" layoutY="729.0" mnemonicParsing="false" onAction="#addReservation" text="Dodaj" />
             <Button layoutX="543.0" layoutY="729.0" mnemonicParsing="false" text="Wstecz" />
             <Button layoutX="478.0" layoutY="729.0" mnemonicParsing="false" onAction="#handleCancel" text="Anuluj" />
             <TableView fx:id="clientTable" layoutX="21.0" layoutY="152.0" prefHeight="465.0" prefWidth="631.0">

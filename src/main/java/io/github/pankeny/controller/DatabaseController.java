@@ -225,8 +225,8 @@ public class DatabaseController {
 
                 reservation.setReservationId(resultSet.getInt("ReservationId"));
                 reservation.setRoomNubmer(resultSet.getInt("RoomId"));
-                reservation.setStartDate(resultSet.getDate("StartDate"));
-                reservation.setEndDate(resultSet.getDate("EndDate"));
+                reservation.setStartDate(resultSet.getDate("StartDate").toLocalDate());
+                reservation.setEndDate(resultSet.getDate("EndDate").toLocalDate());
                 reservation.setAmountDue(resultSet.getDouble("AmountDue"));
                 reservation.setClientId(resultSet.getInt("ClientId"));
 

@@ -1,11 +1,14 @@
 package io.github.pankeny.controller;
 
 import io.github.pankeny.model.Client;
+import io.github.pankeny.model.Reservation;
 import io.github.pankeny.model.Room;
 
+import javax.xml.transform.Result;
 import java.sql.*;
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class DatabaseController {
 
@@ -195,6 +198,56 @@ public class DatabaseController {
         room.setExtra(resultSet.getString("Extra"));
 
         return room;
+    }
+
+    public HashMap<String, ArrayList<Object>> getReservationsCombinedWithClients(){
+        HashMap<String, ArrayList<Object>> result = new HashMap<>();
+        ArrayList<Object> reservations = new ArrayList<>();
+        ArrayList<Object> clients = new ArrayList<>();
+
+        String getStatement = "select ReservationId, RoomId, StartDate, EndDate, AmountDue, reservations.ClientId, Name, LastName, IdCardNumber from reservations\n" +
+                "join clients \n" +
+                "on reservations.ClientId=clients.ClientId;";
+
+        Connection connection = null;
+
+        try{
+            connection = getConnection();
+
+            PreparedStatement preparedStatement = connection.prepareStatement(getStatement);
+
+            ResultSet resultSet = preparedStatement.executeQuery();
+
+            while(resultSet.next()) {
+
+                Reservation reservation = new Reservation();
+                Client client = new Client();
+
+                reservation.setReservationId(resultSet.getInt("ReservationId"));
+                reservation.setRoomNubmer(resultSet.getInt("RoomId"));
+                reservation.setStartDate(resultSet.getDate("StartDate"));
+                reservation.setEndDate(resultSet.getDate("EndDate"));
+                reservation.setAmountDue(resultSet.getDouble("AmountDue"));
+                reservation.setClientId(resultSet.getInt("ClientId"));
+
+                client.setId(resultSet.getInt("ClientId"));
+                client.setName(resultSet.getString("Name"));
+                client.setLastName(resultSet.getString("LastName"));
+                client.setIdCardNumber(resultSet.getString("IdCardNumber"));
+
+                reservations.add(reservation);
+                clients.add(client);
+
+            }
+
+        } catch(SQLException e) {
+            e.printStackTrace();
+        }
+
+        result.put("reservations", reservations);
+        result.put("clients", clients);
+
+        return result;
     }
 
 }

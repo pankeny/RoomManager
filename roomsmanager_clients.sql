@@ -23,7 +23,7 @@ DROP TABLE IF EXISTS `clients`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
  SET character_set_client = utf8mb4 ;
 CREATE TABLE `clients` (
-  `ClientId` int(11) NOT NULL,
+  `ClientId` int(11) NOT NULL AUTO_INCREMENT,
   `Name` varchar(100) COLLATE utf8_polish_ci NOT NULL,
   `LastName` varchar(199) COLLATE utf8_polish_ci NOT NULL,
   `IdCardNumber` varchar(30) COLLATE utf8_polish_ci NOT NULL,

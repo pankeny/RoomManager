@@ -1,61 +1,96 @@
 package io.github.pankeny.model;
 
-import java.util.Date;
+import javafx.beans.property.*;
+
+import java.time.LocalDate;
 
 public class Reservation {
 
-    private Integer reservationId;
-    private Integer roomNubmer;
-    private Integer clientId;
-    private Date startDate;
-    private Date endDate;
-    private Double AmountDue;
+    private IntegerProperty reservationId;
+    private IntegerProperty roomNubmer;
+    private IntegerProperty clientId;
+    private ObjectProperty<LocalDate> startDate;
+    private ObjectProperty<LocalDate> endDate;
+    private DoubleProperty amountDue;
 
-    public Integer getReservationId() {
+    public Reservation(){
+        this.reservationId = new SimpleIntegerProperty();
+        this.roomNubmer = new SimpleIntegerProperty();
+        this.clientId = new SimpleIntegerProperty();
+        this.startDate = new SimpleObjectProperty<>();
+        this.endDate = new SimpleObjectProperty<>();
+        this.amountDue = new SimpleDoubleProperty();
+    }
+
+    public int getReservationId() {
+        return reservationId.get();
+    }
+
+    public IntegerProperty reservationIdProperty() {
         return reservationId;
     }
 
-    public void setReservationId(Integer reservationId) {
-        this.reservationId = reservationId;
+    public void setReservationId(int reservationId) {
+        this.reservationId.set(reservationId);
     }
 
-    public Integer getRoomNubmer() {
+    public int getRoomNubmer() {
+        return roomNubmer.get();
+    }
+
+    public IntegerProperty roomNubmerProperty() {
         return roomNubmer;
     }
 
-    public void setRoomNubmer(Integer roomNubmer) {
-        this.roomNubmer = roomNubmer;
+    public void setRoomNubmer(int roomNubmer) {
+        this.roomNubmer.set(roomNubmer);
     }
 
-    public Integer getClientId() {
+    public int getClientId() {
+        return clientId.get();
+    }
+
+    public IntegerProperty clientIdProperty() {
         return clientId;
     }
 
-    public void setClientId(Integer clientId) {
-        this.clientId = clientId;
+    public void setClientId(int clientId) {
+        this.clientId.set(clientId);
     }
 
-    public Date getStartDate() {
+    public LocalDate getStartDate() {
+        return startDate.get();
+    }
+
+    public ObjectProperty<LocalDate> startDateProperty() {
         return startDate;
     }
 
-    public void setStartDate(Date startDate) {
-        this.startDate = startDate;
+    public void setStartDate(LocalDate startDate) {
+        this.startDate.set(startDate);
     }
 
-    public Date getEndDate() {
+    public LocalDate getEndDate() {
+        return endDate.get();
+    }
+
+    public ObjectProperty<LocalDate> endDateProperty() {
         return endDate;
     }
 
-    public void setEndDate(Date endDate) {
-        this.endDate = endDate;
+    public void setEndDate(LocalDate endDate) {
+        this.endDate.set(endDate);
     }
 
-    public Double getAmountDue() {
-        return AmountDue;
+    public double getAmountDue() {
+        return amountDue.get();
     }
 
-    public void setAmountDue(Double amountDue) {
-        AmountDue = amountDue;
+    public DoubleProperty amountDueProperty() {
+        return amountDue;
+    }
+
+    public void setAmountDue(double amountDue) {
+        this.amountDue.set(amountDue);
     }
 }

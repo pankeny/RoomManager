@@ -1,6 +1,8 @@
 package io.github.pankeny.controller;
 
 import io.github.pankeny.MainApp;
+import io.github.pankeny.model.Client;
+import io.github.pankeny.model.Reservation;
 import io.github.pankeny.model.Room;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
@@ -11,8 +13,6 @@ import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
-
-import java.time.LocalDate;
 
 public class ReservationController {
 
@@ -63,7 +63,6 @@ public class ReservationController {
         } );
 
         roomTableView.getSelectionModel().selectedItemProperty().addListener( (Observable, oldValue, newValue) -> setCurrentRoom(newValue));
-
 
     }
 

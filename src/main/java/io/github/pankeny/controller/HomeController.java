@@ -22,6 +22,7 @@ import javafx.stage.Stage;
 
 import javax.swing.*;
 import java.io.IOException;
+import java.time.LocalDate;
 
 public class HomeController {
 
@@ -64,6 +65,41 @@ public class HomeController {
     @FXML
     TableColumn<Room,String> extraColumn;
 
+    @FXML
+    Button addReservationButton;
+
+    @FXML
+    Button addClientButton;
+
+    @FXML
+    Button removeClientButton;
+
+    @FXML
+    Button editClientButton;
+
+    // Reservations Table
+
+    @FXML
+    TableView<Reservation> reservationTableView;
+
+    @FXML
+    TableColumn<Reservation, Number> reservationIdColumn;
+
+    @FXML
+    TableColumn<Reservation, Number> roomNumberColumn;
+
+    @FXML
+    TableColumn<Reservation, String> lastNameResColumn;
+
+    @FXML
+    TableColumn<Reservation, LocalDate> startDateColumn;
+
+    @FXML
+    TableColumn<Reservation, LocalDate> endDateColumn;
+
+    @FXML
+    TableColumn<Reservation, Number> amountDueColumn;
+
     Stage popupStage;
     AnchorPane newClientScene;
     AnchorPane editClientScene;
@@ -80,8 +116,10 @@ public class HomeController {
 
     @FXML
     void initialize() {
+
         initClientTable();
         initRoomTable();
+        initReservationTable();
 
         clientTable.getSelectionModel().selectedItemProperty().addListener( (Observable, oldValue, newValue) -> setCurrentClient(newValue));
     }
@@ -202,13 +240,18 @@ public class HomeController {
         roomTableView.setItems(roomObservableList);
     }
 
-    private  void initReservationTable(){
-        reservationObservableList = FXCollections.observableList(dbController.getReservations());
+    private void initReservationTable(){
+        reservationObservableList = FXCollections.observableArrayList(dbController.getReservations());
 
+        reservationIdColumn.setCellValueFactory( e -> e.getValue().reservationIdProperty() );
+        roomNumberColumn.setCellValueFactory( e -> e.getValue().roomNubmerProperty() );
+        lastNameResColumn.setCellValueFactory( e -> e.getValue().clientLastNameProperty() );
+        startDateColumn.setCellValueFactory( e -> e.getValue().startDateProperty() );
+        endDateColumn.setCellValueFactory( e -> e.getValue().endDateProperty() );
+        amountDueColumn.setCellValueFactory( e -> e.getValue().amountDueProperty() );
 
+        reservationTableView.setItems(reservationObservableList);
     }
-
-
 
     public void setCurrentClient(Client client){
         this.selectedClient = client;
@@ -218,6 +261,7 @@ public class HomeController {
     public Client getCurrentClient(){
         return selectedClient;
     }
+
 
 
     private void setUpPopup(){

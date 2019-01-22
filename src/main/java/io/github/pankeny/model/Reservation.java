@@ -9,14 +9,17 @@ public class Reservation {
     private IntegerProperty reservationId;
     private IntegerProperty roomNubmer;
     private IntegerProperty clientId;
+    private StringProperty clientLastName;
     private ObjectProperty<LocalDate> startDate;
     private ObjectProperty<LocalDate> endDate;
     private DoubleProperty amountDue;
+
 
     public Reservation(){
         this.reservationId = new SimpleIntegerProperty();
         this.roomNubmer = new SimpleIntegerProperty();
         this.clientId = new SimpleIntegerProperty();
+        this.clientLastName = new SimpleStringProperty("");
         this.startDate = new SimpleObjectProperty<>();
         this.endDate = new SimpleObjectProperty<>();
         this.amountDue = new SimpleDoubleProperty();
@@ -93,4 +96,10 @@ public class Reservation {
     public void setAmountDue(double amountDue) {
         this.amountDue.set(amountDue);
     }
+
+    public String getClientLastName(){ return clientLastName.get(); }
+
+    public StringProperty clientLastNameProperty() { return clientLastName; }
+
+    public void  setClientLastName(String clientLastName) { this.clientLastName.set(clientLastName);}
 }

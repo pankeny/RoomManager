@@ -200,10 +200,9 @@ public class DatabaseController {
         return room;
     }
 
-    public HashMap<String, ArrayList<Object>> getReservationsCombinedWithClients(){
-        HashMap<String, ArrayList<Object>> result = new HashMap<>();
-        ArrayList<Object> reservations = new ArrayList<>();
-        ArrayList<Object> clients = new ArrayList<>();
+    public ArrayList<Reservation> getReservations(){
+        ArrayList<Reservation> reservations = new ArrayList<>();
+
 
         String getStatement = "select ReservationId, RoomId, StartDate, EndDate, AmountDue, reservations.ClientId, Name, LastName, IdCardNumber from reservations\n" +
                 "join clients \n" +
@@ -221,7 +220,6 @@ public class DatabaseController {
             while(resultSet.next()) {
 
                 Reservation reservation = new Reservation();
-                Client client = new Client();
 
                 reservation.setReservationId(resultSet.getInt("ReservationId"));
                 reservation.setRoomNubmer(resultSet.getInt("RoomId"));
@@ -229,25 +227,17 @@ public class DatabaseController {
                 reservation.setEndDate(resultSet.getDate("EndDate").toLocalDate());
                 reservation.setAmountDue(resultSet.getDouble("AmountDue"));
                 reservation.setClientId(resultSet.getInt("ClientId"));
-
-                client.setId(resultSet.getInt("ClientId"));
-                client.setName(resultSet.getString("Name"));
-                client.setLastName(resultSet.getString("LastName"));
-                client.setIdCardNumber(resultSet.getString("IdCardNumber"));
+                reservation.setClientLastName(resultSet.getString("LastName"));
 
                 reservations.add(reservation);
-                clients.add(client);
-
             }
 
         } catch(SQLException e) {
             e.printStackTrace();
         }
 
-        result.put("reservations", reservations);
-        result.put("clients", clients);
 
-        return result;
+        return reservations;
     }
 
 }

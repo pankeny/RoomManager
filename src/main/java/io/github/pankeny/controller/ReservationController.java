@@ -104,7 +104,6 @@ public class ReservationController {
 
     private void initRoomTable(){
 
-//    `
         roomObservableList = FXCollections.observableArrayList(dbController.getAvailableRoomsFromDB(arrivalDateDP.getValue(), departureDateDP.getValue()));
 
         numberColumn.setCellValueFactory( e -> e.getValue().numberProperty() );

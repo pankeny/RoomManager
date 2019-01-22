@@ -3,6 +3,7 @@ package io.github.pankeny.controller;
 import com.sun.org.apache.xpath.internal.operations.Bool;
 import io.github.pankeny.MainApp;
 import io.github.pankeny.model.Client;
+import io.github.pankeny.model.Reservation;
 import io.github.pankeny.model.Room;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
@@ -23,8 +24,6 @@ import javax.swing.*;
 import java.io.IOException;
 
 public class HomeController {
-
-
 
     // Client Table
     @FXML
@@ -65,26 +64,15 @@ public class HomeController {
     @FXML
     TableColumn<Room,String> extraColumn;
 
-    @FXML
-    Button addReservationButton;
-
-    @FXML
-    Button addClientButton;
-
-    @FXML
-    Button removeClientButton;
-
-    @FXML
-    Button editClientButton;
-
     Stage popupStage;
     AnchorPane newClientScene;
     AnchorPane editClientScene;
 
     private ObservableList<Client> clientObservableList;
-    private Client selectedClient;
-
     private ObservableList<Room> roomObservableList;
+    private ObservableList<Reservation> reservationObservableList;
+
+    private Client selectedClient;
 
     private DatabaseController dbController = new DatabaseController();
 
@@ -201,17 +189,7 @@ public class HomeController {
         clientTable.setItems(clientObservableList);
     }
 
-    public void setCurrentClient(Client client){
-        this.selectedClient = client;
-        System.out.println(client);
-    }
-
-    public Client getCurrentClient(){
-        return selectedClient;
-    }
-
     private void initRoomTable(){
-
         roomObservableList = FXCollections.observableArrayList(dbController.getRoomsFromDB());
 
         numberColumn.setCellValueFactory( e -> e.getValue().numberProperty() );
@@ -223,6 +201,24 @@ public class HomeController {
 
         roomTableView.setItems(roomObservableList);
     }
+
+    private  void initReservationTable(){
+        reservationObservableList = FXCollections.observableList(dbController.getReservations());
+
+
+    }
+
+
+
+    public void setCurrentClient(Client client){
+        this.selectedClient = client;
+        System.out.println(client);
+    }
+
+    public Client getCurrentClient(){
+        return selectedClient;
+    }
+
 
     private void setUpPopup(){
 

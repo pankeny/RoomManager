@@ -8,6 +8,7 @@ import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
 
 import java.time.LocalDate;
 
@@ -31,6 +32,8 @@ public class SelectClientReservationsController {
     @FXML
     TableColumn<Client, String> clientIdCardColumn;
 
+    @FXML
+    TextField lastNameTextField;
 
     private MainApp mainApp;
     private LocalDate checkIn, checkOut;
@@ -45,6 +48,11 @@ public class SelectClientReservationsController {
 
         clientTable.getSelectionModel().selectedItemProperty().addListener( (Observable, oldValue, newValue) -> setCurrentClient(newValue));
 
+        lastNameTextField.textProperty().addListener( (observable, oldValue, newValue) -> {
+            if (!newValue.equals("")){
+                initClientTable(newValue);
+            }
+        });
     }
 
     @FXML
@@ -61,6 +69,10 @@ public class SelectClientReservationsController {
     }
 
     @FXML
+    public void addNewClient(){
+
+    }
+    @FXML
     public void handleCancel() {
         mainApp.showHome();
     }
@@ -76,7 +88,18 @@ public class SelectClientReservationsController {
     }
 
     private void initClientTable(){
-        clientObservableList = FXCollections.observableArrayList(dbController.getClientsFromDB());
+            clientObservableList = FXCollections.observableArrayList(dbController.getClientsFromDB());
+
+            clientIdColumn.setCellValueFactory( e -> e.getValue().idProperty());
+            clientNameColumn.setCellValueFactory( e -> e.getValue().nameProperty() );
+            clientLastNameColumn.setCellValueFactory( e -> e.getValue().lastNameProperty());
+            clientIdCardColumn.setCellValueFactory( e -> e.getValue().idCardNumberProperty());
+
+            clientTable.setItems(clientObservableList);
+    }
+
+    private void initClientTable(String lastName){
+        clientObservableList = FXCollections.observableArrayList(dbController.getClientsByLastName(lastName));
 
         clientIdColumn.setCellValueFactory( e -> e.getValue().idProperty());
         clientNameColumn.setCellValueFactory( e -> e.getValue().nameProperty() );

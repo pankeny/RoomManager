@@ -85,6 +85,14 @@ public class DatabaseController {
         return clientsList;
     }
 
+    public ArrayList<Client> getClientsByLastName(String lastName){
+
+        ArrayList<Client> clients = new ArrayList<>();
+
+
+
+        return clients;
+    }
 
     public ArrayList<Room> getRoomsFromDB(){
         ArrayList<Room> roomsList = new ArrayList<>();

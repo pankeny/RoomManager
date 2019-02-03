@@ -6,15 +6,21 @@ import io.github.pankeny.model.Room;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.AnchorPane;
+import javafx.stage.Modality;
+import javafx.stage.Stage;
 
+import java.io.IOException;
 import java.time.LocalDate;
 
 import static java.time.temporal.ChronoUnit.DAYS;
 
-public class SelectClientReservationsController {
+public class SelectClientReservationsController implements ControllerInterface{
 
     //Client TABLE
     @FXML
@@ -36,6 +42,8 @@ public class SelectClientReservationsController {
     TextField lastNameTextField;
 
     private MainApp mainApp;
+    private Stage popupStage;
+    AnchorPane newClientScene;
     private LocalDate checkIn, checkOut;
     private Room room;
     private ObservableList<Client> clientObservableList;
@@ -51,6 +59,8 @@ public class SelectClientReservationsController {
         lastNameTextField.textProperty().addListener( (observable, oldValue, newValue) -> {
             if (!newValue.equals("")){
                 initClientTable(newValue);
+            } else {
+                initClientTable();
             }
         });
     }
@@ -69,9 +79,35 @@ public class SelectClientReservationsController {
     }
 
     @FXML
-    public void addNewClient(){
+    public boolean addNewClient(){
+        try{
+            this.popupStage = new Stage();
+            System.out.println("ADDING NEW CLIENT");
 
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(getClass().getResource("/io/github/pankeny/view/NewClientDialog.fxml"));
+            newClientScene = loader.load();
+
+            popupStage.setTitle("Dodawanie klienta");
+            popupStage.setScene(new Scene(newClientScene));
+            popupStage.initModality(Modality.WINDOW_MODAL);
+            popupStage.initOwner(mainApp.getPrimaryStage());
+
+            NewClientDialogController controller = loader.getController();
+
+            controller.setParent(this);
+
+            popupStage.showAndWait();
+            initClientTable();
+
+            return true;
+
+        } catch (IOException e) {
+            e.printStackTrace();
+            return false;
+        }
     }
+
     @FXML
     public void handleCancel() {
         mainApp.showHome();
@@ -88,18 +124,23 @@ public class SelectClientReservationsController {
     }
 
     private void initClientTable(){
-            clientObservableList = FXCollections.observableArrayList(dbController.getClientsFromDB());
 
-            clientIdColumn.setCellValueFactory( e -> e.getValue().idProperty());
-            clientNameColumn.setCellValueFactory( e -> e.getValue().nameProperty() );
-            clientLastNameColumn.setCellValueFactory( e -> e.getValue().lastNameProperty());
-            clientIdCardColumn.setCellValueFactory( e -> e.getValue().idCardNumberProperty());
-
-            clientTable.setItems(clientObservableList);
+        clientObservableList = FXCollections.observableArrayList(dbController.getClientsFromDB());
+        setItemsInReservationTable(clientObservableList);
     }
 
     private void initClientTable(String lastName){
+
         clientObservableList = FXCollections.observableArrayList(dbController.getClientsByLastName(lastName));
+        setItemsInReservationTable(clientObservableList);
+
+    }
+
+    private void setCurrentClient(Client client){
+        this.selectedClient = client;
+    }
+
+    private void setItemsInReservationTable(ObservableList<Client> clientObservableList){
 
         clientIdColumn.setCellValueFactory( e -> e.getValue().idProperty());
         clientNameColumn.setCellValueFactory( e -> e.getValue().nameProperty() );
@@ -107,11 +148,10 @@ public class SelectClientReservationsController {
         clientIdCardColumn.setCellValueFactory( e -> e.getValue().idCardNumberProperty());
 
         clientTable.setItems(clientObservableList);
+
     }
 
-    private void setCurrentClient(Client client){
-        this.selectedClient = client;
+    public Stage getPopupStage(){
+        return this.popupStage;
     }
-
-
 }

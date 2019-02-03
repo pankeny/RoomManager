@@ -24,7 +24,7 @@ import javax.swing.*;
 import java.io.IOException;
 import java.time.LocalDate;
 
-public class HomeController {
+public class HomeController implements ControllerInterface{
 
     // Client Table
     @FXML
@@ -116,7 +116,6 @@ public class HomeController {
 
     @FXML
     void initialize() {
-
         initClientTable();
         initRoomTable();
         initReservationTable();
@@ -255,18 +254,12 @@ public class HomeController {
 
     public void setCurrentClient(Client client){
         this.selectedClient = client;
-        System.out.println(client);
     }
 
     public Client getCurrentClient(){
         return selectedClient;
     }
 
-
-
-    private void setUpPopup(){
-
-    }
 
     public Stage getPopupStage(){
         return popupStage;

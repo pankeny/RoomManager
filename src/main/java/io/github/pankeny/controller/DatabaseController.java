@@ -89,6 +89,39 @@ public class DatabaseController {
 
         ArrayList<Client> clients = new ArrayList<>();
 
+        String sqlStatement = "SELECT * FROM CLIENTS \n" +
+                "WHERE  CLIENTS.LastName like '" + lastName.trim() + "%';";
+
+        Connection connection = null;
+
+        try{
+
+            connection = getConnection();
+
+            PreparedStatement preparedStatement = connection.prepareStatement(sqlStatement);
+
+            ResultSet resultSet = preparedStatement.executeQuery();
+
+            while(resultSet.next()){
+
+                Client client = new Client();
+
+                client.setId(resultSet.getInt("ClientId"));
+                client.setName(resultSet.getString("Name"));
+                client.setLastName(resultSet.getString("LastName"));
+                client.setIdCardNumber(resultSet.getString("IdCardNumber"));
+
+                clients.add(client);
+
+            }
+
+        } catch(SQLException e){
+            e.printStackTrace();
+        } finally {
+            closeConnection(connection);
+        }
+
+
 
 
         return clients;
@@ -136,12 +169,8 @@ public class DatabaseController {
             PreparedStatement preparedStatement = connection.prepareStatement(getAvailableRoomsStatement);
             ResultSet resultSet = preparedStatement.executeQuery();
 
-            while(resultSet.next()){
-
-
+            while(resultSet.next())
                 availableRooms.add(setRoomDetails(resultSet));
-
-            }
 
         } catch (SQLException e) {
             e.printStackTrace();

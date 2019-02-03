@@ -23,7 +23,7 @@ public class NewClientDialogController {
     @FXML
     Label validationInfoLabel;
 
-    HomeController homeController;
+    ControllerInterface controller;
 
 
     @FXML
@@ -31,16 +31,19 @@ public class NewClientDialogController {
         validationInfoLabel.setVisible(false);
     }
 
-    public void setParent(HomeController controller){
-        this.homeController = controller;
+//    public void setParent(HomeController controller){
+//        this.homeController = controller;
+//    }
+//    public void setParent(SelectClientReservationsController selectClientReservationsController) {this.selectClientReservationsController = selectClientReservationsController;}
+    public void setParent(ControllerInterface controller){
+        this.controller = controller;
     }
-
 
     @FXML
     public void addNewClient(){
 
         if (inputValidation()) {
-            Stage popup = homeController.getPopupStage();
+            Stage popup = controller.getPopupStage();
             Client client = new Client();
 
             String name = nameTextField.getText();
@@ -66,7 +69,7 @@ public class NewClientDialogController {
 
     @FXML
     public void handleCancel(){
-        Stage popup = homeController.getPopupStage();
+        Stage popup = controller.getPopupStage();
         popup.close();
     }
 
